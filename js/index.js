@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     //desafiate
     const logueado = localStorage.getItem('logueado');
-    if (!logueado) {
+    if (logueado === 'false') {
         window.location.href = '../login.html';
     }
     // desafiate
