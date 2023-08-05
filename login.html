@@ -17,11 +17,39 @@
 </head>
 
 <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav w-100 justify-content-between">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html" id="inicio-btn">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sell.html">Vender</a>
+          </li>
+          <li class="nav-item">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <main class="mt-5">
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+      <h2>login</h2>
+      <form id="login-form">
+        <p>Nombre</p>
+        <input type="text" name="nombre_de_usuario" placeholder="Nombre de usuario">
+        <p>Contraseña</p>
+        <input type="password" name="contrasena" placeholder="Contraseña">
+        <button type="submit" id="iniciar-sesion-btn">Iniciar sesión</button>
+      </form>
     </div>
   </main>
   <footer class="text-muted">
@@ -32,7 +60,8 @@
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
-  <script src="js/login.js"></script>
+  <script src="js/login.js" type="module"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
