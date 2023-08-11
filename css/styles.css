@@ -8,6 +8,9 @@
 .jumbotron .display-4 {
   font-weight: bold;
 }
+::marker {
+  color: transparent;
+}
 
 nav a {
   text-decoration: none;
