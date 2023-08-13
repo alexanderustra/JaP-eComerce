@@ -4,24 +4,30 @@ main {
 h1 {
     font-size: 50px;
     margin: auto;
-    margin-top: 30px;
     margin-bottom: 30px;
-    background-color: blue;
+    background-color:rgb(217, 171, 64);
 }
 img {
     border-radius: 50%;
     width: 300px;
     height: 300px;
+    margin-bottom: 20px;
     object-fit: cover;
 }
-button {
-    border-radius: 10px;
+button , input {
+    font-size: 20px;
+    border-radius: 5px;
     border: none;
-    background-color:  blue;
-    width: 200px;
-    height: 40px;
+    outline: none;
+    width:200px;
+    height: 50px;
+    margin: auto;
+    background-color: rgb(217, 171, 64);
 }
 .modal-input {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
     position: absolute;
     z-index: 1;
     top: 50%;
