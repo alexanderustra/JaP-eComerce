@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         }
         else {
             //si completa ambos campos lo mando al index y guardo logueado como verdadero.
-            window.location.href = 'https://alexanderustra.github.io/workspace-inicial/index.html';
+            window.location.href = '../index.html';
             logueado = true;
             localStorage.setItem('logueado', 'true');
         }
