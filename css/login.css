@@ -23,7 +23,11 @@ input {
     border: none;
     border-radius: 10px;
     outline: none;
-}
+    margin: auto;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+} 
 button[type = submit] {
     display: block;
     margin: auto;
@@ -44,7 +48,7 @@ button[type = submit]:hover {
     margin: auto;
     margin-top: 100px;
     width: 50%;
-    height: 400px;
+    height: 320px;
     border-radius: 10px;
     background-color:rgb(45, 92, 117) ;
 }
