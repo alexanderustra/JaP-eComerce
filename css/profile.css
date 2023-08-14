@@ -1,0 +1,69 @@
+main {
+    text-align: center;
+}
+h1 {
+    font-size: 50px;
+    margin: auto;
+    margin-bottom: 30px;
+    background-color:rgb(254, 225, 159);
+}
+img {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+button , input {
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    width:200px;
+    height: 50px;
+    margin: auto;
+    background-color: rgb(254, 225, 159);
+    -webkit-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+}
+button {
+    background-color: rgb(239, 192, 130);
+}
+.modal-input {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: rgb(182, 177, 177);
+    border-radius: 12px;
+    width: 500px;
+    height: 300px;
+    border: solid 2px rgb(254, 225, 159);
+    -webkit-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    animation-duration: .5s;
+    animation-name: slide-in;
+}
+@-webkit-keyframes slide-in {
+    from {
+      opacity: 0;
+      scale: 0.2;
+      margin-left: -250px;
+    }
+    to {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+  
+@media screen and (max-width: 768px) {
+    .modal-input {
+        width: 90%;
+    }
+}
