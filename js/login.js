@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     document.getElementById('iniciar-sesion-btn').addEventListener('click',(e)=>{
         e.preventDefault();
-        let nombreDeUsuarioInput = formulario.querySelector('input[name="nombre_de_usuario"]');
-        let contrasenaInput = formulario.querySelector('input[name="contrasena"]');
-        if(nombreDeUsuarioInput.value === '' || contrasenaInput.value === '' ) {
+        let emailInput = formulario.querySelector('input[name="user-email"]');
+        let passwordInput = formulario.querySelector('input[name="password"]');
+        if(emailInput.value === '' || !emailInput.value.includes('@') || passwordInput.value === '' ) {
             alert('Complete ambos campos')
         }
         else {
