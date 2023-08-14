@@ -191,3 +191,33 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+.short-container {
+  width: 30%;
+  height: 300px;
+  margin-top: 150px;
+}
+.short-container-login {
+  width: 30%;
+  height: 220px;
+  margin-top: 150px;
+}
+#perfil-a {
+  position: relative;
+  top: 8px;
+  color:  rgba(255, 255, 255, 0.5);
+}
+#perfil-a:hover {
+  color: rgb(200, 196, 196);
+}
+
+
+@media screen and (max-width:1000px) {
+  .short-container {
+    width: 80%;
+    height: 420px;
+  }
+  .short-container-login {
+    width: 80%;
+    height: 300px;
+  }
+}
