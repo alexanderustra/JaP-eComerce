@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           
             localStorage.setItem('user-data', userData);
-            window.location.href = 'https://alexanderustra.github.io/workspace-inicial/';
+            window.location.href = './index.html';
           }
     });
 });
