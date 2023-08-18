@@ -191,3 +191,28 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.containerr {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+  justify-content: flex-start; /* Alinea los elementos a la izquierda */
+  margin: 0;
+}
+
+.containerr li {
+  flex: 0 0 calc(33.33% - 20px); /* Calcula el ancho de cada elemento */
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 10px; /* Agrega espacio entre elementos */
+  box-sizing: border-box; /* Incluye el relleno y el borde en el ancho */
+  max-width: calc(33.33% - 20px); /* Limita el ancho máximo para evitar desbordamiento */
+}
+
+.containerr img {
+  max-width: 100%; /* Asegura que las imágenes no sean más anchas que su contenedor */
+  height: auto; /* Mantiene la proporción de aspecto de las imágenes */
+  display: block; /* Elimina el espacio extra debajo de las imágenes */
+}
+
