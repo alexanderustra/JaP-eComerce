@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function(){
-
     //desafiate
     //si el usuario no inició sesión previamente, se lo enviará directo a login.html
     const logueado = localStorage.getItem('logueado');
-    if (logueado === 'false') {
+    if (logueado === 'false' || logueado === null) {
         window.location.href = '../login.html';
     }
+    console.log(logueado)
     // desafiate
 
     document.getElementById("autos").addEventListener("click", function() {

@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     let logueado = false;
     //mientras el usuario no esté logueado se guarda en el almacenamiento local que no lo está.
     localStorage.setItem('logueado','false');
+    console.log(logueado)
 
     document.getElementById('iniciar-sesion-btn').addEventListener('click',(e)=>{
         e.preventDefault();
