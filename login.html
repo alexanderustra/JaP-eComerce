@@ -7,13 +7,19 @@
   <title>eMercado - Todo lo que busques está aquí</title>
   
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/profile.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
 
   <style>
     body {
       background-color: rgb(248, 249, 250);
+    }
+     /* no me quedó de otra, desde la hoja de estilo no se modificaba, probablemente sea por styles.css */
+     input {
+        margin-bottom:20px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
   </style>
 </head>
@@ -37,21 +43,20 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="my-profile.html">Perfil</a>
+            <a href="my-profile.html" id="perfil-a">Perfil</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <main class="mt-5">
-    <div class="container-form">
+    <div class="main-container short-container-login">
       <h2 id="h2">LOGIN</h2>
       <form id="login-form">
-        <p>Nombre</p>
-        <input type="text" name="nombre_de_usuario" placeholder="Nombre de usuario">
-        <p>Contraseña</p>
-        <input type="password" name="contrasena" placeholder="Contraseña">
-        <button type="submit" id="iniciar-sesion-btn">Iniciar sesión</button>
+        <input type="email" name="user-email" placeholder="Correo">
+        <input type="password" name="password" placeholder="Contraseña">
+        <button type="submit" id="iniciar-sesion-btn">Iniciar sesión</button> <br>
+        <a href="sign-in.html">Registrarse</a>
       </form>
     </div>
   </main>
