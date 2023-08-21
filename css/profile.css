@@ -1,54 +1,102 @@
+@font-face {
+    font-family: 'sansation';
+    src: url('../webfonts/Sansation_Bold.ttf') format('truetype');
+}
 main {
     text-align: center;
 }
+
 h1 {
     font-size: 50px;
     margin: auto;
+    margin-top: 10px;
+    width: 50%;
     margin-bottom: 30px;
-    background-color:rgb(254, 225, 159);
+    border-radius: 5px;
+    color: #FECEA8;
+    background-color:#99B89B;
+    -webkit-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
 }
-img {
-    border-radius: 50%;
-    width: 300px;
-    height: 300px;
-    margin-bottom: 20px;
-    object-fit: cover;
+h1,h2,h3,button,input,p {
+    font-family: 'sansation';
 }
+a,h1,h2,h3, input,button {
+    text-decoration: none;
+}
+a:hover {
+    color: rgb(106, 105, 105);
+}
+h4 {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 60%;
+    height: 40px;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #FECEA8;
+    background-color: #575757;
+}
+
 button , input {
-    font-size: 20px;
+    font-size: 23px;
     border-radius: 5px;
     border: none;
     outline: none;
     width:200px;
     height: 50px;
     margin: auto;
-    background-color: rgb(254, 225, 159);
-    -webkit-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
-    -moz-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
-    box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
-}
-button {
-    background-color: rgb(239, 192, 130);
+    color: #99B89B;
+    background-color: #FECEA8;
+} 
+
+img {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    object-fit: cover;
 }
 .modal-input {
-    text-align: center;
     display: flex;
     flex-wrap: wrap;
     position: absolute;
-    z-index: 1;
     top: 50%;
     left: 50%;
     transform: translate(-50%);
-    background-color: rgb(182, 177, 177);
+    background-color: rgb(124, 116, 99);
     border-radius: 12px;
     width: 500px;
     height: 300px;
-    border: solid 2px rgb(254, 225, 159);
     -webkit-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
     -moz-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
     box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    
     animation-duration: .5s;
     animation-name: slide-in;
+}
+.main-container , #main-container-profile{
+    margin: auto;
+    margin-top: 200px;
+    width: 30%;
+    height: 300px;
+    border-radius: 3px;
+    background-color: #D5DDD5;
+    -webkit-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+}
+#main-container-profile {
+    margin-top: 50px;
+    height:720px ;
+    width: 50%;
+}
+#edit-profile-btn {
+    margin-bottom: 10px;
 }
 @-webkit-keyframes slide-in {
     from {
@@ -65,5 +113,18 @@ button {
 @media screen and (max-width: 768px) {
     .modal-input {
         width: 90%;
+    }
+    .main-container , #main-container-profile {
+        width: 90%;
+    }
+    button {
+        width: 60%;
+    }
+    img {
+        width: 80%;
+        height: 30%;
+    }
+    h4 {
+        font-size: 18px;
     }
 }
