@@ -1,3 +1,7 @@
+body {
+  background-color: #2A363B;
+}
+
 .jumbotron,
 .card-body,
 .container,
@@ -192,27 +196,24 @@ a.custom-card:hover {
   color: orange;
 }
 
-.containerr {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap; /* Permite que los elementos se envuelvan */
-  justify-content: flex-start; /* Alinea los elementos a la izquierda */
-  margin: 0;
+#perfil-a {
+  position: relative;
+  top: 8px;
+  color:  rgba(255, 255, 255, 0.5);
 }
-
-.containerr li {
-  flex: 0 0 calc(33.33% - 20px); /* Calcula el ancho de cada elemento */
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin: 10px; /* Agrega espacio entre elementos */
-  box-sizing: border-box; /* Incluye el relleno y el borde en el ancho */
-  max-width: calc(33.33% - 20px); /* Limita el ancho máximo para evitar desbordamiento */
+#perfil-a:hover {
+  color: rgb(200, 196, 196);
 }
-
-.containerr img {
-  max-width: 100%; /* Asegura que las imágenes no sean más anchas que su contenedor */
-  height: auto; /* Mantiene la proporción de aspecto de las imágenes */
-  display: block; /* Elimina el espacio extra debajo de las imágenes */
+.lead {
+  color: white;
 }
-
+@media screen and (max-width:1000px) {
+  .short-container {
+    width: 80%;
+    height: 420px;
+  }
+  .short-container-login {
+    width: 80%;
+    height: 300px;
+  }
+}
