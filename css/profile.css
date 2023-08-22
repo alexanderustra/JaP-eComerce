@@ -13,8 +13,8 @@ h1 {
     width: 50%;
     margin-bottom: 30px;
     border-radius: 5px;
-    color: #FECEA8;
-    background-color:#99B89B;
+    color: #000000;
+    background-color: #ffa600;
     -webkit-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
     -moz-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
     box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
@@ -60,6 +60,7 @@ img {
     margin-top: 20px;
     margin-bottom: 20px;
     object-fit: cover;
+
 }
 .modal-input {
     display: flex;
