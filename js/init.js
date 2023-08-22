@@ -39,3 +39,26 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+const userForm = document.getElementById('login-form');
+const userInfo = document.getElementById('user-email');
+
+// Al cargar la página, verifica si hay un nombre de usuario almacenado y muéstralo
+window.onload = function () {
+    const storedUsername = localStorage.getItem('user-email');
+    if (storedUsername) {
+        userInfo.textContent = `Bienvenido, ${storeduser-email} | `;
+    }
+};
+
+// Manejar el envío del formulario de inicio de sesión
+userForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const username = document.getElementById('user-email').value;
+    
+    // Almacena el nombre de usuario en el almacenamiento local
+    localStorage.setItem('user-email', username);
+
+    // Muestra el nombre de usuario en la barra de navegación
+    userInfo.textContent = `Bienvenido, ${user-email} | `;
+});
