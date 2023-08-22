@@ -28,5 +28,5 @@ document.addEventListener('DOMContentLoaded',()=>{
             e.preventDefault()
             alert('Tiene que iniciar sesión');
         }
-    }));
+    }));   
 })
