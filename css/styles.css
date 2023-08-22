@@ -1,5 +1,5 @@
 body {
-  background-color: #2A363B;
+  background-color: #888f92;
 }
 
 .jumbotron,
@@ -75,8 +75,10 @@ nav a {
 }
 
 footer {
+  background-color: #212529!important;
   padding-top: 3rem;
   padding-bottom: 3rem;
+
 }
 
 footer p {
