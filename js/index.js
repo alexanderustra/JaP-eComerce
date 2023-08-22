@@ -22,3 +22,22 @@ document.addEventListener("DOMContentLoaded", function(){
     });
     console.log()
 });
+
+const emailForm = document.getElementById('login-form');
+const userEmailInput = document.getElementById('user-email');
+
+emailForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita que se recargue la página
+
+    const userEmail = userEmailInput.value; // Obtener el valor del correo electrónico ingresado
+
+    // Almacenar el correo electrónico en localStorage
+    localStorage.setItem('userEmail', userEmail);
+
+    alert('Correo electrónico guardado con éxito.');
+});
+ // Obtener el correo electrónico almacenado en localStorage y mostrarlo en el campo de entrada
+const storedEmail = localStorage.getItem('userEmail');
+if (storedEmail) {
+userEmailInput.value = storedEmail;
+}
