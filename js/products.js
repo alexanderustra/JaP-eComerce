@@ -7,8 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (logueado === 'false') {
         window.location.href = '../login.html';
     }
-// end-point
-const url = 'https://japceibal.github.io/emercado-api/cats_products/101.json';
+
+    let endPoint = localStorage.getItem('catID');
+const url = `https://japceibal.github.io/emercado-api/cats_products/${endPoint}.json`;
 
 fetch(url) // conseguimos los datos desde la API.
     .then(response => response.json())
@@ -21,7 +22,7 @@ fetch(url) // conseguimos los datos desde la API.
                `<img src="${product.image}" alt="${product.name}">
                 <div class = 'info-container'> 
                     <div class = 'name-and-price'>
-                        <h2>${product.name}</h2>
+                        <h2 class = 'product-name'>${product.name}</h2>
                         <h2>${product.cost} ${product.currency}</h2>
                     </div>
 
@@ -40,4 +41,16 @@ fetch(url) // conseguimos los datos desde la API.
     })
     .catch(error => console.error('Error fetching data:', error));
 
+    document.getElementById('search-input').addEventListener('keyup',()=>{
+        let inputValue = document.getElementById('search-input').value;
+        let productNames = document.querySelectorAll('.product-name');
+        productNames.forEach(product => {
+            if(product.textContent.toLowerCase().includes(inputValue.toLowerCase())) {
+                product.closest('.product-list').classList.remove('hidden')
+            }
+            else  {
+                product.closest('.product-list').classList.add('hidden')
+            }
+        })
+    })
 });
