@@ -1,5 +1,5 @@
 body {
-  background-color: #2A363B;
+  background-color: #888f92;
 }
 
 .jumbotron,
@@ -65,7 +65,7 @@ nav a {
 
 .jumbotron .container {
   max-width: 40rem;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #ffffff80;
   border-radius: 10px;
   text-shadow: 1px 1px 2px grey;
 }
@@ -75,8 +75,10 @@ nav a {
 }
 
 footer {
+  background-color: #212529!important;
   padding-top: 3rem;
   padding-bottom: 3rem;
+
 }
 
 footer p {
@@ -193,7 +195,7 @@ a.custom-card:hover {
 }
 
 .checked {
-  color: orange;
+  color: #ffa600;
 }
 
 #perfil-a {

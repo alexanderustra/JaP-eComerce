@@ -13,8 +13,8 @@ h1 {
     width: 50%;
     margin-bottom: 30px;
     border-radius: 5px;
-    color: #FECEA8;
-    background-color:#99B89B;
+    color: #000000;
+    background-color: #ffa600;
     -webkit-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
     -moz-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
     box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
@@ -26,7 +26,7 @@ a,h1,h2,h3, input,button {
     text-decoration: none;
 }
 a:hover {
-    color: rgb(106, 105, 105);
+    color: rgb(0, 0, 0);
 }
 h4 {
     margin: auto;
@@ -37,8 +37,8 @@ h4 {
     border-radius: 3px;
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #FECEA8;
-    background-color: #575757;
+    color: #000000;
+    background-color: #ffa600;
 }
 
 button , input {
@@ -49,8 +49,8 @@ button , input {
     width:200px;
     height: 50px;
     margin: auto;
-    color: #99B89B;
-    background-color: #FECEA8;
+    color: #000000;
+    background-color: #ffa600;
 } 
 
 img {
@@ -60,6 +60,8 @@ img {
     margin-top: 20px;
     margin-bottom: 20px;
     object-fit: cover;
+    border: #000000 solid ;
+
 }
 .modal-input {
     display: flex;
@@ -82,6 +84,7 @@ img {
 .main-container , #main-container-profile{
     margin: auto;
     margin-top: 200px;
+    margin-block-end: 100px;
     width: 30%;
     height: 300px;
     border-radius: 3px;
