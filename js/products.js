@@ -7,8 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (logueado === 'false') {
         window.location.href = '../login.html';
     }
-// end-point
-const url = 'https://japceibal.github.io/emercado-api/cats_products/101.json';
+
+    let endPoint = localStorage.getItem('catID');
+const url = `https://japceibal.github.io/emercado-api/cats_products/${endPoint}.json`;
 
 fetch(url) // conseguimos los datos desde la API.
     .then(response => response.json())
@@ -45,10 +46,10 @@ fetch(url) // conseguimos los datos desde la API.
         let productNames = document.querySelectorAll('.product-name');
         productNames.forEach(product => {
             if(product.textContent.toLowerCase().includes(inputValue.toLowerCase())) {
-                product.parentNode.parentNode.parentNode.style.display = 'flex';
+                product.closest('.product-list').classList.remove('hidden')
             }
             else  {
-                product.parentNode.parentNode.parentNode.style.display = 'none';
+                product.closest('.product-list').classList.add('hidden')
             }
         })
     })
