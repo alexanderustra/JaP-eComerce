@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    let userName = localStorage.getItem('nombreUsuario')
+    document.getElementById('perfil-a').textContent = userName;
+
     let dataArray = document.querySelectorAll('.profile-data');
     let dataType = ['Nombre: ', 'Correo: ','Teléfono: '] // se usa para que en el bucle la descripción sea coherente con el tipo de dato.
 

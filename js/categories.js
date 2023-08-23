@@ -94,6 +94,9 @@ document.addEventListener("DOMContentLoaded", function(e){
         window.location.href = '../login.html';
     }
     
+    let userName = localStorage.getItem('nombreUsuario')
+
+    document.getElementById('perfil-a').textContent = userName;
 
     getJSONData(CATEGORIES_URL).then(function(resultObj){
         if (resultObj.status === "ok"){

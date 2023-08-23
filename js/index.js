@@ -5,8 +5,10 @@ document.addEventListener("DOMContentLoaded", function(){
     if (logueado === 'false' || logueado === null) {
         window.location.href = './login.html';
     }
-    console.log(logueado)
     // desafiate
+
+    let userName = localStorage.getItem('nombreUsuario')
+    document.getElementById('perfil-a').textContent = userName;
 
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);

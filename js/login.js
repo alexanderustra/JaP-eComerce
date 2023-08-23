@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded',()=>{
     document.getElementById('iniciar-sesion-btn').addEventListener('click',(e)=>{
         e.preventDefault();
         //al hacer click en el botón iniciar sesión se verifica que ningún campo esté vacío.
-        let emailInput = formulario.querySelector('input[name="user-email"]');
+        let userNameInput = formulario.querySelector('input[name="user-email"]');
         let passwordInput = formulario.querySelector('input[name="password"]');
-        if(emailInput.value === '' || !emailInput.value.includes('@') || passwordInput.value === '' ) {
+        if(userNameInput.value === '' || passwordInput.value === '' ) {
             alert('Complete ambos campos')
         }
         else {
@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             window.location.href = './index.html';
             logueado = true;
             localStorage.setItem('logueado', 'true');
+            localStorage.setItem('nombreUsuario',userNameInput.value)
         }
     })
     // no permite cambiar de pestaña si no se loguea primero.
