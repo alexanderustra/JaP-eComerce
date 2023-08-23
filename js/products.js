@@ -21,7 +21,7 @@ fetch(url) // conseguimos los datos desde la API.
                `<img src="${product.image}" alt="${product.name}">
                 <div class = 'info-container'> 
                     <div class = 'name-and-price'>
-                        <h2>${product.name}</h2>
+                        <h2 class = 'product-name'>${product.name}</h2>
                         <h2>${product.cost} ${product.currency}</h2>
                     </div>
 
@@ -40,4 +40,16 @@ fetch(url) // conseguimos los datos desde la API.
     })
     .catch(error => console.error('Error fetching data:', error));
 
+    document.getElementById('search-input').addEventListener('keyup',()=>{
+        let inputValue = document.getElementById('search-input').value;
+        let productNames = document.querySelectorAll('.product-name');
+        productNames.forEach(product => {
+            if(product.textContent.toLowerCase().includes(inputValue.toLowerCase())) {
+                product.parentNode.parentNode.parentNode.style.display = 'flex';
+            }
+            else  {
+                product.parentNode.parentNode.parentNode.style.display = 'none';
+            }
+        })
+    })
 });
