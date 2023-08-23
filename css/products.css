@@ -7,7 +7,7 @@
     display: flex;
     width: 90%;
     height: 70px;
-    border-bottom: 5px solid #f87c16;
+    border-bottom: 5px solid #FECEA8;
   }
   .product-list{
     display: flex;
@@ -16,7 +16,7 @@
     margin: auto;
     margin-top: 10px;
     border-radius: 5px;
-    background-color: #e9e9e9;
+    background-color: #D5DDD5;
   }
   
   .product-list img {
@@ -65,7 +65,7 @@ input {
     border-radius: 5px;
 }
 button {
-    color: #1d1c1c;
+    color: #575757;
     background-color: #D5DDD5;
     margin-left: 20px;
     border: none;
@@ -85,7 +85,7 @@ button {
     position: relative;
     left: 95%;
     top: -30%;
-    background-color:#f57e1c;
+    background-color:#FECEA8;
 }
 #arrows-container {
     margin:auto ;
@@ -96,4 +96,7 @@ button {
     margin: auto;
     margin-left: 10px;
     margin-right: 10px;
+}
+.hidden {
+  display: none;
 }
