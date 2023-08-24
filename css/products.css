@@ -1,4 +1,23 @@
-.info-container {
+input {
+  color: #575757;
+  background-color: #D5DDD5;
+  width: 300px;
+  height: 50px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+button {
+  color: #575757;
+  background-color: #D5DDD5;
+  margin-left: 20px;
+  border: none;
+  width: 70px;
+  height: 50px;
+  border-radius: 5px;
+  }
+  
+  .info-container {
     width: 60%;
   }
   .name-and-price {
@@ -47,37 +66,6 @@
     margin-top: 150px;
 }
 
-#search-section {
-    display: flex;
-    margin: auto;
-    margin-top: 70px;
-    height: 70px;
-    width: 50%;
-    text-align: center;
-}
-input {
-    color: #575757;
-    background-color: #D5DDD5;
-    width: 300px;
-    height: 50px;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-}
-button {
-    color: #575757;
-    background-color: #D5DDD5;
-    margin-left: 20px;
-    border: none;
-    width: 70px;
-    height: 50px;
-    border-radius: 5px;
-}
-#filters-btn {
-    margin: auto;
-    margin-top: 0px;
-}
-
 .material-symbols-outlined {
     font-size: 50px;
 }
@@ -87,13 +75,32 @@ button {
     top: -30%;
     background-color:#FECEA8;
 }
-#arrows-container {
-    margin:auto ;
-    margin-top: 30px;
-    text-align: center;
-}
 .arrows {
     margin: auto;
     margin-left: 10px;
     margin-right: 10px;
+}
+.hidden {
+  display: none;
+}
+.filters {
+  width: 100px;
+  margin-left: 20px;
+}
+#arrows-container {
+  margin:auto ;
+  margin-top: 30px;
+  text-align: center;
+}
+#filter-btn {
+margin: auto;
+margin-top: 0px;
+}
+#search-section {
+  display: flex;
+  margin: auto;
+  margin-top: 70px;
+  height: 70px;
+  width: 50%;
+  text-align: center;
 }
