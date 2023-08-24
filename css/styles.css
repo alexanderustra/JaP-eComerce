@@ -1,5 +1,5 @@
 body {
-  background-color: #2A363B;
+  background-color: #c7c7c7;
 }
 
 .jumbotron,
@@ -77,6 +77,7 @@ nav a {
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
+  background-color: #212529;
 }
 
 footer p {
@@ -205,7 +206,17 @@ a.custom-card:hover {
   color: rgb(200, 196, 196);
 }
 .lead {
-  color: white;
+    font-size: 50px;
+    margin: auto;
+    margin-top: 10px;
+    width: 50%;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    color: #ffff;
+    background-color:#F09100;
+    -webkit-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
 }
 @media screen and (max-width:1000px) {
   .short-container {
