@@ -7,7 +7,7 @@
     display: flex;
     width: 90%;
     height: 70px;
-    border-bottom: 5px solid #F09100;
+    border-bottom: 5px solid #FECEA8;
   }
   .product-list{
     display: flex;
@@ -16,9 +16,7 @@
     margin: auto;
     margin-top: 10px;
     border-radius: 5px;
-    background-color: #e4fefe;
-    padding: 3px;
-    border: 5px solid;
+    background-color: #D5DDD5;
   }
   
   .product-list img {
@@ -29,12 +27,12 @@
     object-fit: cover;
   }
   .product-list h2 {
-    color: #000000;
+    color: #575757;
     margin: auto;
     margin-top:10px;
   }
   .product-list p {
-    color: #000000;
+    color: #575757;
     margin-top: 10px;
     font-size: 20px;
   }
@@ -67,8 +65,8 @@ input {
     border-radius: 5px;
 }
 button {
-    color: #000000;
-    background-color: #F09100;
+    color: #575757;
+    background-color: #D5DDD5;
     margin-left: 20px;
     border: none;
     width: 70px;
@@ -87,7 +85,7 @@ button {
     position: relative;
     left: 95%;
     top: -30%;
-    background-color:#F091008;
+    background-color:#FECEA8;
 }
 #arrows-container {
     margin:auto ;
@@ -98,29 +96,4 @@ button {
     margin: auto;
     margin-left: 10px;
     margin-right: 10px;
-}
-.hidden {
-  display: none;
-}
-
-.filters {
-  width: 100px;
-  margin-left: 20px;
-}
-#arrows-container {
-  margin:auto ;
-  margin-top: 30px;
-  text-align: center;
-}
-#filter-btn {
-margin: auto;
-margin-top: 0px;
-}
-#search-section {
-  display: flex;
-  margin: auto;
-  margin-top: 70px;
-  height: 70px;
-  width: 50%;
-  text-align: center;
 }
