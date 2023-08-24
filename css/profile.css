@@ -13,8 +13,8 @@ h1 {
     width: 50%;
     margin-bottom: 30px;
     border-radius: 5px;
-    color: #FECEA8;
-    background-color:#99B89B;
+    color: #ffff;
+    background-color:#F09100;
     -webkit-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
     -moz-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
     box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
@@ -37,8 +37,8 @@ h4 {
     border-radius: 3px;
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #FECEA8;
-    background-color: #575757;
+    color: #ffff;
+    background-color:#F09100;
 }
 
 button , input {
@@ -49,8 +49,8 @@ button , input {
     width:200px;
     height: 50px;
     margin: auto;
-    color: #99B89B;
-    background-color: #FECEA8;
+    color: #ffff;
+    background-color:#F09100;
 } 
 
 img {
@@ -60,6 +60,7 @@ img {
     margin-top: 20px;
     margin-bottom: 20px;
     object-fit: cover;
+    border: 5px solid;
 }
 .modal-input {
     display: flex;
@@ -85,7 +86,7 @@ img {
     width: 30%;
     height: 300px;
     border-radius: 3px;
-    background-color: #D5DDD5;
+    background-color: #ffffff;
     -webkit-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
     -moz-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
     box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
