@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         window.location.href = '../login.html';
     }
     
-
+    document.getElementById('perfil-a').textContent = localStorage.getItem('nombreUsuario');
     getJSONData(CATEGORIES_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             currentCategoriesArray = resultObj.data

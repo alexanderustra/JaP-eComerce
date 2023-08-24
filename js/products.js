@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (logueado === 'false') {
         window.location.href = '../login.html';
     }
-
+    document.getElementById('perfil-a').textContent = localStorage.getItem('nombreUsuario');
+    
     let endPoint = localStorage.getItem('catID');
 const url = `https://japceibal.github.io/emercado-api/cats_products/${endPoint}.json`;
 
