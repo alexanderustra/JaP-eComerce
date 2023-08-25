@@ -12,48 +12,56 @@ document.addEventListener('DOMContentLoaded', () => {
     let endPoint = localStorage.getItem('catID');
 const url = `https://japceibal.github.io/emercado-api/cats_products/${endPoint}.json`;
 
-fetch(url) // conseguimos los datos desde la API.
-    .then(response => response.json())
-    .then(data => {
-        const productsList = document.getElementById('container');
-        data.products.forEach(product => {
-            const li = document.createElement('li');
-            li.className = 'product-list'
-            li.innerHTML =  // creamos una lista que tiene dentro los datos conseguidos desde la API
-               `<img src="${product.image}" alt="${product.name}">
-                <div class = 'info-container'> 
-                    <div class = 'name-and-price'>
-                        <h2 class = 'product-name'>${product.name}</h2>
-                        <h2 class = 'product-cost'>${product.cost} ${product.currency}</h2>
-                    </div>
+fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    const productsList = document.getElementById('container');
+    const productNames = [];
+    const productDescriptions = [];
 
-                    <p>${product.description}</p>
-                    <p>Sold: ${product.soldCount}</p>
-                    <button class = 'cart'>
-                        <span class="material-symbols-outlined">
-                        add_shopping_cart
-                        </span>
-                    </button>
-                </div>
-                `
-            ;
-            productsList.appendChild(li); // se muestra la lista en el DOM.
-        });
-    })
-    .catch(error => console.error('Error fetching data:', error));
+    data.products.forEach(product => {
+      const li = document.createElement('li');
+      li.className = 'product-list';
+      li.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <div class="info-container">
+          <div class="name-and-price">
+            <h2 class="product-info">${product.name}</h2>
+            <h2 class="product-cost">${product.cost} ${product.currency}</h2>
+          </div>
+          <p class="product-info">${product.description}</p>
+          <p>Sold: ${product.soldCount}</p>
+          <button class="cart">
+            <span class="material-symbols-outlined">
+              add_shopping_cart
+            </span>
+          </button>
+        </div>
+      `;
+      productsList.appendChild(li);
 
-    document.getElementById('search-input').addEventListener('keyup',()=>{
-        let inputValue = document.getElementById('search-input').value;
-        let productNames = document.querySelectorAll('.product-name');
-        productNames.forEach(product => {
-            if(product.textContent.toLowerCase().includes(inputValue.toLowerCase())) {
-                product.closest('.product-list').classList.remove('hidden')
-            }
-            else  {
-                product.closest('.product-list').classList.add('hidden')
-            }
-        })
-    })
+      productNames.push(product.name.toLowerCase());
+      productDescriptions.push(product.description.toLowerCase());
+    });
+
+    document.getElementById('search-input').addEventListener('keyup', () => {
+      const inputValue = document.getElementById('search-input').value.toLowerCase();
+      const productList = document.querySelectorAll('.product-list');
+
+      for (let i = 0; i < productList.length; i++) {
+        const product = productList[i];
+        const productName = productNames[i];
+        const productDescription = productDescriptions[i];
+
+        if (productName.includes(inputValue) || productDescription.includes(inputValue)) {
+          product.classList.remove('hidden');
+        } else {
+          product.classList.add('hidden');
+        }
+      }
+    });
+  })
+  .catch(error => console.error('Error fetching data:', error));
 
     document.getElementById("filter-btn").addEventListener("click", function(){
         let productPrices = document.querySelectorAll('.product-cost');
