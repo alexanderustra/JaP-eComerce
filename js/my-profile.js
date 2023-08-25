@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    let image = localStorage.getItem('user-selected-img')
+    if(image) {
+        document.getElementById('profile-img').src = image;
+    }
+
     let dataArray = document.querySelectorAll('.profile-data');
     let dataType = ['Nombre: ', 'Correo: ','Teléfono: '] // se usa para que en el bucle la descripción sea coherente con el tipo de dato.
 
@@ -46,6 +51,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 dataArray[i].textContent = dataType[i] + inputsToModify[i].value;
             }
         })
+
+        document.getElementById('profile-img').addEventListener('click',()=>{
+            let options = ['option1','option2','option3','option4','option5','option6','option7','option8','option9','option10','option11','option12','option13','option14','option15']
+            let modalImg = document.createElement('div');
+            modalImg.className = 'modal-img';
+            options.forEach(option => {
+                let image = new Image();
+                image.src = 'img/profile-imgs/' + option + '.jpg';
+                modalImg.appendChild(image);
+                
+                image.addEventListener('click',()=>{
+                    modalImg.style.display = 'none';
+                    document.getElementById('profile-img').src = image.src;
+                    localStorage.setItem('user-selected-img',image.src)
+                })
+            })
+            mainElement.appendChild(modalImg)
+        })
+
     }
 
     setProfile()

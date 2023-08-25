@@ -61,7 +61,7 @@ img {
     margin-bottom: 20px;
     object-fit: cover;
 }
-.modal-input {
+.modal-input , .modal-img{
     display: flex;
     flex-wrap: wrap;
     position: absolute;
@@ -78,6 +78,12 @@ img {
     
     animation-duration: .5s;
     animation-name: slide-in;
+}
+.modal-img img {
+    margin: auto;
+    width: 20%;
+    height: 30%;
+    object-fit:cover;
 }
 .main-container , #main-container-profile{
     margin: auto;

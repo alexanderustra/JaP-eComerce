@@ -7,6 +7,7 @@ input {
   border: none;
   border-radius: 5px;
 }
+
 button {
   color: #575757;
   background-color: #D5DDD5;
@@ -40,7 +41,7 @@ button {
   
   .product-list img {
     border-radius: 5px 0px 0px 5px;
-    width: 340px;
+    width: 30%;
     height: 100%;
     margin-right: 50px;
     object-fit: cover;
@@ -75,11 +76,7 @@ button {
     top: -30%;
     background-color:#FECEA8;
 }
-.arrows {
-    margin: auto;
-    margin-left: 10px;
-    margin-right: 10px;
-}
+
 .hidden {
   display: none;
 }
@@ -87,11 +84,7 @@ button {
   width: 100px;
   margin-left: 20px;
 }
-#arrows-container {
-  margin:auto ;
-  margin-top: 30px;
-  text-align: center;
-}
+
 #filter-btn {
 margin: auto;
 margin-top: 0px;
@@ -103,4 +96,53 @@ margin-top: 0px;
   height: 70px;
   width: 50%;
   text-align: center;
+}
+
+@media (max-width: 1000px) {
+  body {
+    width: 100%;
+  }
+  main {
+    width: 100%;
+  }
+
+  .product-list {
+    margin-bottom: 0px;
+    height: 120px;
+    flex-wrap: nowrap;
+  }
+  .product-list h2 {
+    font-size: 14px;
+  }
+  .product-list p {
+    font-size: 13px;
+    margin-top: 0px;
+    margin: none;
+  }
+  .name-and-price {
+    margin-top: 0px;
+    width: 90%;
+    height: 40px;
+  }
+  input {
+    width:300px;
+    font-size: 12px;
+  }
+  button {
+    font-size: 12px;
+  }
+  .filters {
+    width: 50px;
+    margin-left: 20px;
+  }
+  .cart {
+    display: none;
+  }
+  #search-section {
+    width: 90%;
+  }
+  #filter-btn {
+    width: 50px;
+    margin-left: 10px;
+  }
 }
