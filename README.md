@@ -1,6 +1,7 @@
 # workspace-inicial
 
 # filtros
-- puede que haya que modificar un poco la creación de los objetos para que se puedan reordenar con los filtros.
-
 - el buscador y el filtrado se anulan entre si.
+
+# productos 
+- Al reescalar con el hover la imágen no se ajusta correctamente.
