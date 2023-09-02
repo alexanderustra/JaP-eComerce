@@ -32,15 +32,16 @@ fetch(url)
         <img src="${product.image}" alt="${product.name}">
         <div class="info-container">
           <div class="name-and-price">
-            <h2 class="product-info">${product.name}</h2>
+            <h2 class="product-info product-name">${product.name}</h2>
             <h2 class="product-cost">${product.cost} ${product.currency}</h2>
           </div>
           
-          <p class="product-info">${product.description}</p>
+          <p class="product-info product-description">${product.description}</p>
           
 
           <div id = 'sold-and-btn-container'> 
-          <p>Sold: ${product.soldCount}</p>
+          <p> sold : </p>
+          <p class = 'sold-count'>${product.soldCount}</p>
           <button class="cart">
             <span class="material-symbols-outlined">
               add_shopping_cart
@@ -53,31 +54,71 @@ fetch(url)
 
       productNames.push(product.name.toLowerCase());
       productDescriptions.push(product.description.toLowerCase());
-    });
+      
+      //BUSCADOR
 
-    /* Con cada cambio en el buscador se verifica si el valor concuerda
+      /* Con cada cambio en el buscador se verifica si el valor concuerda
       con los valores del nombre o descripción de cada lista, las listas cuyo 
       valores no concuerdan se las oculta mediante un cambio de clase.
     */
-    document.getElementById('search-input').addEventListener('keyup', () => {
-      const inputValue = document.getElementById('search-input').value.toLowerCase();
-      const productList = document.querySelectorAll('.product-list');
+      document.getElementById('search-input').addEventListener('keyup', () => {
+        const inputValue = document.getElementById('search-input').value.toLowerCase();
+        const productList = Array.from(document.querySelectorAll('.product-list'));
+      
+        productList
+          .forEach(matchedProduct => {
+            // se toma el nombre y descriptción de los productos.
+            const productName = Array.from(matchedProduct.querySelectorAll('.product-name'));
+            const productDescription = Array.from(matchedProduct.querySelectorAll('.product-description'));
+            // se verifica si el valor del input concuerda con el nombre o descripción de algún producto.
+            const productMatches = productName.some(name => name.textContent.toLowerCase().includes(inputValue)) ||
+              productDescription.some(description => description.textContent.toLowerCase().includes(inputValue));
+            //si el producto concuerda con el buscador se lo mantiene.
+            if (productMatches) {
+              matchedProduct.classList.remove('hidden');
+            } else { // si no concuerda se lo oculta.
+              matchedProduct.classList.add('hidden');
+            }
+          });
+      });
 
-      for (let i = 0; i < productList.length; i++) {
-        const product = productList[i];
-        const productName = productNames[i];
-        const productDescription = productDescriptions[i];
-
-        if (productName.includes(inputValue) || productDescription.includes(inputValue)) {
-          product.classList.remove('hidden');
-        } else {
-          product.classList.add('hidden');
-        }
+      //FILTROS 
+      //limpiar pantalla cada vez que se filtra, para no repetir objetos.
+      function clearScreen (product) {
+        productsList.innerHTML = '';
+        product.forEach(product => {
+        productsList.appendChild(product);
+      });
       }
-    });
-  })
-  .catch(error => console.error('Error fetching data:', error));
+      
+      const sortProducts = (selector, ascending) => {
+        const productList = document.querySelectorAll('.product-list');
+        const sortedProducts = Array.from(productList).sort((a, b) => {
+          const valueA = parseInt(a.querySelector(selector).textContent);
+          const valueB = parseInt(b.querySelector(selector).textContent);
+          return ascending ? valueA - valueB : valueB - valueA;
+        });
+      
+        clearScreen(sortedProducts);
+      };
+      
+      document.getElementById("sort-sales-asc-btn").addEventListener("click", () => {
+        sortProducts('.sold-count', true);
+      });
+      document.getElementById("sort-sales-desc-btn").addEventListener("click", () => {
+        sortProducts('.sold-count', false);
+      });
+      document.getElementById("sort-price-asc").addEventListener("click", () => {
+        sortProducts('.product-cost', true);
+      });
+      document.getElementById("sort-price-desc").addEventListener("click", () => {
+        sortProducts('.product-cost', false);
+      });
+});
+})
+.catch(error => console.error('Error fetching data:', error));
 
+    //FILTRO POR RANGO DE PRECIO.
     document.getElementById("filter-btn").addEventListener("click", function(){
         let productPrices = document.querySelectorAll('.product-cost');
         let minPrice = document.getElementById("rangeFilterPriceMin").value;
@@ -103,5 +144,5 @@ fetch(url)
             }
         });
     });
-    
 });
+
