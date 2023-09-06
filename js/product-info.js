@@ -3,4 +3,5 @@ document.addEventListener('DOMContentLoaded', () => {
     if (logueado === 'false' || logueado === null) {
         window.location.href = '../login.html';
     }
+    document.getElementById('perfil-a').textContent = localStorage.getItem('nombreUsuario');
 });

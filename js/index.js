@@ -5,9 +5,11 @@ document.addEventListener("DOMContentLoaded", function(){
     if (logueado === 'false' || logueado === null) {
         window.location.href = './login.html';
     }
-    console.log(logueado)
     // desafiate
+    //se coloca el nombre del usuario en el nav
+    document.getElementById('perfil-a').textContent = localStorage.getItem('nombreUsuario');
 
+    // sin esto las categorías del index no redireccionan a los productos.
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
         window.location = "products.html"
@@ -20,5 +22,4 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
-    console.log()
 });
