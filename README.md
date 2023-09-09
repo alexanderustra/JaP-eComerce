@@ -1,7 +1,7 @@
 # workspace-inicial
 
-# filtros
-- el buscador y el filtrado se anulan entre si.
+# Entrega 3
+- puro css nomá po wn la wea dificil
+- guardar en el local storage el comentario realizado por el usuario
+# Mati entero wn
 
-# productos 
-- Al reescalar con el hover la imágen no se ajusta correctamente.
