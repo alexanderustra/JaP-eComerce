@@ -209,6 +209,7 @@ a.custom-card:hover {
 .lead {
   color: white;
 }
+
 @media screen and (max-width:1000px) {
   .short-container {
     width: 80%;

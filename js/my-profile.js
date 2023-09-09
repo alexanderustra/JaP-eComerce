@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function editProfile() {
         //al clickear 'editar perfil' se crea un modal con 4 inputs, uno para cada dato del usuario.
-        document.getElementById('profile-img').src = 'img/profile-imgs/bana.jpeg'
         const mainElement = document.querySelector('main');
         let modal = document.createElement('DIV');
         modal.className = 'modal-input'; 
