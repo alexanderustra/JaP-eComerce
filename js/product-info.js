@@ -7,34 +7,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //consiguiendo info del producto
     let productId = localStorage.getItem('productID');
-    console.log(productId)
     let urlPoducto = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
     fetch(urlPoducto)
     .then(response => response.json())
     .then(data => { 
-        console.log(data)
         let container = document.createElement('DIV');
-        container.innerHTML = `
-            <h1>${data.name} </h1>
-            <img src = '${data.images[0]}'> </img>
-            <p>${data.cost} ${data.currency} </p>
-            <p>Vendidos: ${data.soldCount}</p>
-            <h2>Descripción del producto </h2>
-            <p>${data.description}</p>
-            <h2>Productos similares </h2>
-            <div>
-                <div>
-                    <h3>${data.relatedProducts[0].name}</h3>
-                    <img src = '${data.relatedProducts[0].image}'></img>
-                </div>
-                <div>
-                    <h3>${data.relatedProducts[1].name}</h3>
-                    <img src = '${data.relatedProducts[1].image}'></img>
-                </div>
+        /* se crea un arreglo donde, por cada url que mande la API, se crea un elemento
+            HTML img con esa url.
+        */
+        let imagesHtml = data.images.map(image => `<img src="${image}">`).join('');
+        // lo mismo con los productos relacionados.
+        let relatedProductsHtml = data.relatedProducts.map(product => `
+            <div class="related-product">
+                <h3>${product.name}</h3>
+                <img src="${product.image}">
             </div>
-            
+        `).join('');
+        
+         // finalmente se muestran el pantalla todos los datos.
+        container.innerHTML = `
+            <h1>${data.name}</h1>
+            <div id="img-container">${imagesHtml}</div>
+            <p>${data.cost} ${data.currency}</p>
+            <p>Vendidos: ${data.soldCount}</p>
+            <h2>Descripción del producto</h2>
+            <p>${data.description}</p>
+            <h2>Productos similares</h2>
+            <div id="related-products-container">
+                ${relatedProductsHtml}
+            </div>
         `
-        document.getElementById('container').appendChild(container)
+
+        document.getElementById('container').appendChild(container);
     })
     .catch(error => console.error('Error fetching data:', error));
 
@@ -43,31 +47,30 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(urlComentarios)
     .then(response => response.json())
     .then(data => { 
-        console.log(data)
-        data.forEach(coment =>{
-            console.log(coment)
-            const list = document.createElement('LI');
-            list.style.backgroundColor = 'grey'
-            list.innerHTML = `
-                <h4>${coment.user}</h4>
-                <h4>${coment.dateTime}</h4>
-                <p>${coment.description}</p>
-                <h4>Puntuación: ${coment.score}</h4>
-            `
-            document.getElementById('coment-container').appendChild(list)
-        })
+        // lo mismo, usar .map para generar una lista con el comentario.
+        let commentsArray = data.map(comment => 
+            `<li class = 'comment'>
+                    <h4>${comment.user}</h4>
+                    <h4>${comment.dateTime}</h4>
+                    <p>${comment.description}</p>
+                    <h4>Puntuación: ${comment.score}</h4>
+                </li>`
+        ).join('');
+        document.getElementById('coment-container').innerHTML = commentsArray
     })
     .catch(error => console.error('Error fetching data:', error));
 
+    //mostrando en pantalla el comentario del ususario.
     document.getElementById('enviar-btn').addEventListener('click',()=>{
-        let input = document.getElementById('user-text').value;
-        let select = document.getElementById('puntaje').value;
-        var fechaActual = new Date();
+        const input = document.getElementById('user-text').value;
+        const select = document.getElementById('puntaje').value;
+        let actualDate = new Date();
+        let day = actualDate.getDate();
+        let month = actualDate.getMonth() + 1; // Los meses en JavaScript van de 0 a 11, por eso se suma 1
+        let year = actualDate.getFullYear();
 
-        var day = fechaActual.getDate();
-        var month = fechaActual.getMonth() + 1; // Los meses en JavaScript van de 0 a 11, por eso se suma 1
-        var year = fechaActual.getFullYear();
-        let coment = document.createElement('li');
+        const coment = document.createElement('li');
+        coment.className = 'comment'
         coment.innerHTML = `
             <h4>${localStorage.getItem('nombreUsuario')}</h4>
             <h4>${year}-${month}-${day}</h4>
