@@ -50,11 +50,20 @@ fetch(url)
           </div>
         </div>
       `;
+      
       productsList.appendChild(li);
 
       productNames.push(product.name.toLowerCase());
       productDescriptions.push(product.description.toLowerCase());
       
+
+      //redirección a la info del producto 
+      let productId = product.id;
+      li.addEventListener('click',()=>{
+        localStorage.setItem('productID',productId);
+        console.log(productId)
+        window.location = 'product-info.html'
+      })
       //BUSCADOR
 
       /* Con cada cambio en el buscador se verifica si el valor concuerda
@@ -65,8 +74,7 @@ fetch(url)
         const inputValue = document.getElementById('search-input').value.toLowerCase();
         const productList = Array.from(document.querySelectorAll('.product-list'));
       
-        productList
-          .forEach(matchedProduct => {
+        productList.forEach(matchedProduct => {
             // se toma el nombre y descriptción de los productos.
             const productName = Array.from(matchedProduct.querySelectorAll('.product-name'));
             const productDescription = Array.from(matchedProduct.querySelectorAll('.product-description'));
