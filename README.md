@@ -1,6 +1,7 @@
 # workspace-inicial
 
-# filtros
-- puede que haya que modificar un poco la creación de los objetos para que se puedan reordenar con los filtros.
+# Entrega 3
+- puro css nomá po wn la wea dificil
+- guardar en el local storage el comentario realizado por el usuario
+# Mati entero wn
 
-- el buscador y el filtrado se anulan entre si.

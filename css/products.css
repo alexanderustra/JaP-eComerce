@@ -1,14 +1,15 @@
 input {
-  color: #575757;
-  background-color: #D5DDD5;
+  color: #49585A;
+  background-color: #F09100;
   width: 300px;
   height: 50px;
   outline: none;
   border: none;
   border-radius: 5px;
 }
+
 button {
-  color: #575757;
+  color: #49585A;
   background-color: #D5DDD5;
   margin-left: 20px;
   border: none;
@@ -18,43 +19,53 @@ button {
   }
   
   .info-container {
-    
     width: 60%;
   }
   .name-and-price {
     margin: auto;
-    margin-top: 10px;
+    margin-top: 5px;
     display: flex;
     width: 90%;
-    height: 70px;
-    border-bottom: 5px solid #FECEA8;
+    height: 55px;
+    border-bottom: 2px solid #F09100;
   }
   .product-list{
     display: flex;
     flex-wrap: wrap;
-    height: 200px;
+    height: 170px;
     margin: auto;
     margin-top: 10px;
     border-radius: 5px;
-    background-color: #D5DDD5;
+    background-color: #ecf7f6;
+    border: solid 2px #F09100; 
+    box-shadow: 4px 4px 7px 2px rgba(0,0,0,0.43);
+    -webkit-box-shadow: 4px 4px 7px 2px rgba(0,0,0,0.43);
+    -moz-box-shadow: 4px 4px 7px 2px rgba(0,0,0,0.43);
+    transition: .3s;
+  }
+  .product-list:hover {
+    background-color: #f9f5c9;
+    transform: scale(1.01);
   }
   
   .product-list img {
-    border-radius: 5px 0px 0px 5px;
-    width: 340px;
+    border-radius: 2px 0px 0px 2px;
+    width: 30%;
     height: 100%;
     margin-right: 50px;
     object-fit: cover;
   }
   .product-list h2 {
-    color: #575757;
+    font-size: 25px;
+    color: #49585A;
     margin: auto;
     margin-top:10px;
   }
   .product-list p {
-    color: #575757;
+    color: #49585A;
     margin-top: 10px;
-    font-size: 20px;
+    font-size: 17px;
+    display: inline;
   }
   .short-container {
     width: 30%;
@@ -71,16 +82,10 @@ button {
     font-size: 50px;
 }
 .cart {
-    position: relative;
-    left: 95%;
-    top: -30%;
-    background-color:#FECEA8;
+  margin-left: 70%;
+  background-color:#F09100;
 }
-.arrows {
-    margin: auto;
-    margin-left: 10px;
-    margin-right: 10px;
-}
+
 .hidden {
   display: none;
 }
@@ -88,11 +93,23 @@ button {
   width: 100px;
   margin-left: 20px;
 }
-#arrows-container {
-  margin:auto ;
-  margin-top: 30px;
+.no-stock-h1 {
+  font-size: 6vw;
+  border-radius: 10px;
+  padding-top: 25px;
+  margin: auto;
   text-align: center;
+  object-position: center;
+  margin-top: 200px;
+  width: 50%;
+  height: 23vw;
+  color: #49585A;
+  background-color: orange;
+  box-shadow: 10px 10px 10px -2px rgba(0,0,0,0.34);
+-webkit-box-shadow: 10px 10px 10px -2px rgba(0,0,0,0.34);
+-moz-box-shadow: 10px 10px 10px -2px rgba(0,0,0,0.34);
 }
+
 #filter-btn {
 margin: auto;
 margin-top: 0px;
@@ -104,4 +121,57 @@ margin-top: 0px;
   height: 70px;
   width: 50%;
   text-align: center;
+}
+#sold-and-btn-container {
+  width: 100%;
+  height: 50px;
+}
+
+@media (max-width: 1000px) {
+  body {
+    width: 100%;
+  }
+  main {
+    width: 100%;
+  }
+
+  .product-list {
+    margin-bottom: 0px;
+    height: 120px;
+    flex-wrap: nowrap;
+  }
+  .product-list h2 {
+    font-size: 14px;
+  }
+  .product-list p {
+    font-size: 10px;
+    margin-top: 0px;
+    margin: none;
+  }
+  .name-and-price {
+    margin-top: 0px;
+    width: 100%;
+    height: 35px;
+  }
+  input {
+    width:300px;
+    font-size: 12px;
+  }
+  button {
+    font-size: 12px;
+  }
+  .filters {
+    width: 50px;
+    margin-left: 20px;
+  }
+  .cart {
+    display: none;
+  }
+  #search-section {
+    width: 90%;
+  }
+  #filter-btn {
+    width: 50px;
+    margin-left: 10px;
+  }
 }
