@@ -1,7 +1,10 @@
-#related-products-container {
-    display: flex;
-    text-align: center;
-    height: 800px;
+h1 {
+    font-size: 50px;
+}
+img {
+    width: 500px;
+    height: 400px;
+    object-fit: cover;
 }
 .related-product {
     margin: auto;
@@ -16,4 +19,8 @@
 }
 .comment {
     border: 2px solid black;
+}
+#related-products-container {
+    display: flex;
+    text-align: center;
 }
