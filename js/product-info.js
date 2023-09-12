@@ -28,9 +28,31 @@ document.addEventListener('DOMContentLoaded', () => {
          // finalmente se muestran el pantalla todos los datos.
         container.innerHTML = `
             <h1>${data.name}</h1>
-            <div id="img-container">${imagesHtml}</div>
-            <div id = 'aside-container'> 
-            </div>
+            <section id = 'img-and-seller-container'>
+                <div id="img-container">
+                    ${imagesHtml}
+                </div>
+                <div id = 'aside-container'> 
+                    <div id="buy-info">
+                    <p class="price-and-sold">${data.cost} ${data.currency}</p>
+                    <p class="price-and-sold">Vendidos: ${data.soldCount}</p>
+                    <input type = 'number' placeholder = 'Cantidad' min = '1'>
+                    <button>Comprar</button>
+                    <button>Añadir al carrito</button>
+
+                    <div id = 'seller-info'>
+                        <h4>Nombre Vendedor</H4>
+                        <h5>Categoría prémium</H5>
+                        <h4>Valoración</H4>
+                        <h4>⭐⭐⭐⭐</H4>
+                        <h5>Productos Vendidos</H5>
+                        <h5>294</H5>
+                        <input type = 'text'>
+                        <button>Preguntar</button>
+                    </div>
+                </div>
+                </div>
+            </section>
             <h2>Descripción del producto</h2>
             <p>${data.description}</p>
             <h2>Productos similares</h2>
@@ -38,15 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${relatedProductsHtml}
             </div>
         `
-        document.getElementById('aside-container').innerHTML += `
-            <div id="buy-info">
-                <p class="price-and-sold">${data.cost} ${data.currency}</p>
-                <p class="price-and-sold">Vendidos: ${data.soldCount}</p>
-                <input type = 'number' placeholder = 'Cantidad' min = '1'>
-                <button>Comprar</button>
-                <button>Añadir al carrito</button>
-            </div>
-        `
+
         document.getElementById('container').appendChild(container);
 
         // Al hacer clic en un producto relacionado, se almacena su ID en la variable selectedProductId.
