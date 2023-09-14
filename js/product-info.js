@@ -11,19 +11,20 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(urlPoducto)
     .then(response => response.json())
     .then(data => { 
-        console.log(data)
+
         let container = document.createElement('DIV');
         /* se crea un arreglo donde, por cada url que mande la API, se crea un elemento
             HTML img con esa url.
         */
         let imagesHtml = data.images.map(image => `<img src="${image}">`).join('');
 
+
         let relatedProductsHtml = data.relatedProducts.map(product => `
             <div class="related-product" data-product-id="${product.id}">
-                <h3>${product.name}</h3>
-                <img src="${product.image}">
-            </div>
-        `).join('');
+
+        // lo mismo con los productos relacionados.
+        let relatedProductsHtml = data.relatedProducts.map(product => `
+            <div class="related-product">
 
          // finalmente se muestran el pantalla todos los datos.
         container.innerHTML = `
@@ -53,6 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 </div>
             </section>
+
+        
+         // finalmente se muestran el pantalla todos los datos.
+        container.innerHTML = `
+            <h1>${data.name}</h1>
+            <div id="img-container">${imagesHtml}</div>
+            <p>${data.cost} ${data.currency}</p>
+            <p>Vendidos: ${data.soldCount}</p>
+
             <h2>Descripción del producto</h2>
             <p>${data.description}</p>
             <h2>Productos similares</h2>
@@ -62,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `
 
         document.getElementById('container').appendChild(container);
+
 
         // Al hacer clic en un producto relacionado, se almacena su ID en la variable selectedProductId.
         document.getElementById('related-products-container').addEventListener('click', (event) => {
@@ -82,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(response => response.json())
     .then(data => { 
 
+
         //generando estrellas
         function starGenerator(score) {
             const maxStars = 5; // El número máximo de estrellas
@@ -99,6 +111,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <p>${comment.description}</p>
                     <h4>${starGenerator(comment.score)}</h4>
+
+        // lo mismo, usar .map para generar una lista con el comentario.
+        let commentsArray = data.map(comment => 
+            `<li class = 'comment'>
+                    <h4>${comment.user}</h4>
+                    <h4>${comment.dateTime}</h4>
+                    <p>${comment.description}</p>
+                    <h4>Puntuación: ${comment.score}</h4>
+
                 </li>`
         ).join('');
         document.getElementById('coment-container').innerHTML = commentsArray
@@ -117,6 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const coment = document.createElement('li');
         coment.className = 'comment'
         coment.innerHTML = `
+
             <div class = 'title-container'> 
                 <h4>${localStorage.getItem('nombreUsuario')}</h4>
                 <h4>${year}-${month}-${day}</h4>
@@ -149,5 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 editable = false;
             }
         })
+
     })
 });

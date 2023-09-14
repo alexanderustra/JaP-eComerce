@@ -129,9 +129,12 @@ margin-top: 0px;
 
 @media (max-width: 1000px) {
   body {
+    width: 100%;
+  }
   main {
     width: 100%;
   }
+
   .product-list {
     margin-bottom: 0px;
     height: 120px;

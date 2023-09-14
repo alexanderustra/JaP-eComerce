@@ -4,13 +4,23 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>eMercado - Todo lo que busques está aquí</title>
-
+  
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/profile.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/product-info.css">
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <style>
+    body {
+      background-color: rgb(248, 249, 250);
+    }
+    /* no me quedó de otra, desde la hoja de estilo no se modificaba, probablemente sea por styles.css */
+    input {
+        margin-bottom:20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+  </style>
 </head>
 
 <body>
@@ -23,7 +33,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link active" href="index.html" id="inicio-btn">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
@@ -32,37 +42,24 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
-            <a href="my-profile.html" id="perfil-a">Pefil</a>
+            <a href="my-profile.html" id="perfil-a">Perfil</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <main>
-    <div class="container" id="container">
-
+  <main class="mt-5">
+    <h1>Registrarse</h1>
+    <div class="main-container short-container">
+      <form id="login-form">
+        <input type="text" name="user-name" placeholder="Nombre de usuario">
+        <input type="email" name="user-email" placeholder="Correo">
+        <input type="number" name="password" placeholder="Teléfono">
+        <input type="password" name="password2" placeholder="Contrasña">
+        <button type="submit" id="sign-in-btn">Registrarse</button> <br>
+        <a href="login.html">Iniciar Sesión</a>
+      </form>
     </div>
-    <div>
-        <h2>Valoración del Producto</h2>
-        <h1>⭐⭐⭐⭐⭐</h1>
-    </div>
-
-    <section id="coment-container">
-    </section>
-    
-    <section id="comment-inputs-container">
-        <h4>Comentar</h4>
-        <textarea name="textarea" id="user-text"></textarea>
-        <select name="puntaje" id="puntaje">
-            <option value="⭐">1</option>
-            <option value="⭐⭐">2</option>
-            <option value="⭐⭐⭐">3</option>
-            <option value="⭐⭐⭐⭐">4</option>
-            <option value="⭐⭐⭐⭐⭐">5</option>
-        </select>
-        <button id="enviar-btn">Enviar</button>
-    </section>
-
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -72,17 +69,8 @@
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
   <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/product-info.js"></script>
+  <script src="js/sign-in.js"></script>
 </body>
 
 </html>

@@ -5,12 +5,26 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>eMercado - Todo lo que busques está aquí</title>
-
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/product-info.css">
+  <link rel="stylesheet" href="css/profile.css">
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -31,38 +45,22 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-            <a href="my-profile.html" id="perfil-a">Pefil</a>
-          </li>
         </ul>
       </div>
     </div>
   </nav>
   <main>
-    <div class="container" id="container">
-
-    </div>
-    <div>
-        <h2>Valoración del Producto</h2>
-        <h1>⭐⭐⭐⭐⭐</h1>
-    </div>
-
-    <section id="coment-container">
-    </section>
-    
-    <section id="comment-inputs-container">
-        <h4>Comentar</h4>
-        <textarea name="textarea" id="user-text"></textarea>
-        <select name="puntaje" id="puntaje">
-            <option value="⭐">1</option>
-            <option value="⭐⭐">2</option>
-            <option value="⭐⭐⭐">3</option>
-            <option value="⭐⭐⭐⭐">4</option>
-            <option value="⭐⭐⭐⭐⭐">5</option>
-        </select>
-        <button id="enviar-btn">Enviar</button>
-    </section>
-
+      <h1>Perfil</h1>
+        <div id="main-container-profile">
+        <img src="img/profile-imgs/option1" alt="profile-image" id="profile-img">
+        <h2 class="profile-data">Fulano de Tal</h2>
+        <h3 class="profile-data">Correro: correo@gmail.com</h3>
+        <h3 class="profile-data">Teléfono: 099 666 666</h3>
+        <button id="edit-profile-btn">Editar Perfíl</button>
+        <a href="history.html"><h4>Historial de Compras</h4></a>
+        <a href="#"><h4>Cambiar Contraseña</h4></a>
+        <a href="login.html"><h4>Cambiar de cuenta</h4></a>
+      </p>
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -72,17 +70,9 @@
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/product-info.js"></script>
+  <script src="js/my-profile.js"></script>
 </body>
 
 </html>
