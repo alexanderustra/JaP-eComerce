@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
             let relatedProductsHtml = data.relatedProducts.map(product => `
                 <div class="related-product" data-product-id="${product.id}">
                     <!-- Contenido de productos relacionados -->
+                    <h3>${product.name}</h3>
+                    <img src="${product.image}">
                 </div>
             `).join('');
 
