@@ -61,7 +61,6 @@ fetch(url)
       let productId = product.id;
       li.addEventListener('click',()=>{
         localStorage.setItem('productID',productId);
-        console.log(productId)
         window.location = 'product-info.html'
       })
       //BUSCADOR
