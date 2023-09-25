@@ -226,10 +226,10 @@ a.custom-card:hover {
   
 }
 
-#dropdown-list{
+.dropdown-list{
   text-align: center;  
 }
 
-#dropdown-list a {
+.dropdown-list a {
   color:rgba(255, 255, 255, 0.5) ;  
 }
