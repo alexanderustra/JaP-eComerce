@@ -88,6 +88,15 @@ footer {
     -webkit-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.31);
     -moz-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.31);
 }
+.carousel img {
+    height: 800px;
+}
+.carousel button {
+    margin-top: 300px;
+    height: 80px;
+    opacity: .8;
+    background-color:#FF813A;
+}
 #img-and-seller-container{
     display: flex;
     height: 850px;
