@@ -29,14 +29,6 @@ function updateTotalCosts(){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 
-    const logueado = localStorage.getItem('logueado');
-    if (logueado === 'false') {
-        window.location.href = '../login.html';
-    }
-
-    let userName = localStorage.getItem('nombreUsuario')
-    document.getElementById('perfil-a').textContent = userName;
-    
     document.getElementById("productCountInput").addEventListener("change", function(){
         productCount = this.value;
         updateTotalCosts();

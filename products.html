@@ -35,28 +35,34 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-            <a href="my-profile.html" id="perfil-a">Perfil</a>
-          </li>
+          <div class="dropdown">
+            <a href="#" role="button" id="perfil-a" data-bs-toggle="dropdown" >
+              Perfil
+            </a>          
+            <ul class="dropdown-menu">
+              <li class="dropdown-list"><a id="" href="cart.html">Mi carrito</a></li>
+              <hr style="color: rgba(255,255,255,.55);">
+              <li class="dropdown-list"><a id="" href="my-profile.html">Mi perfil</a></li>
+              <hr style="color: rgba(255,255,255,.55);">
+              <li class="dropdown-list"><a id="sign-off-btn" href="login.html">Cerrar sesión</a></li>
+            </ul>
+          </div>
         </ul>
       </div>
     </div>
   </nav>
   <main class="pb-5 container">
     <div id="search-section">
-      <input type="text">
-      <button>Buscar</button>
-      <button id="filters-btn" >Filtros</button>
+      <button id="sort-price-asc">P Asc</button>
+      <button id="sort-price-desc">P Desc</button>
+      <button id="sort-sales-asc-btn">S asc</button>
+      <button id="sort-sales-desc-btn">S desc</button>
+      <input type="search" id="search-input" placeholder="Buscar">
+      <input type="number" id="rangeFilterPriceMin" class="filters" placeholder="Min Price">
+      <input type="number" id="rangeFilterPriceMax" class="filters" placeholder="Max Price">
+      <button id="filter-btn">Filtrar</button>
     </div>
     <div class="container li-container" id="container">
-    </div>
-    <div id="arrows-container">
-      <button class="arrows"><span class="material-symbols-outlined">
-        arrow_back_ios
-        </span></button>
-      <button class="arrows"><span class="material-symbols-outlined">
-        arrow_forward_ios
-        </span></button>
     </div>
   </main>
   <footer class="text-muted">
@@ -78,6 +84,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
+  <script src="js/general.js"></script>
 </body>
 
 </html>

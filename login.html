@@ -42,21 +42,31 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-            <a href="my-profile.html" id="perfil-a">Perfil</a>
-          </li>
+          <div class="dropdown">
+            <a href="#" role="button" id="perfil-a" data-bs-toggle="dropdown" >
+              Perfil
+            </a>          
+            <ul class="dropdown-menu">
+              <li class="dropdown-list"><a id="" href="cart.html">Mi carrito</a></li>
+              <hr style="color: rgba(255,255,255,.55);">
+              <li class="dropdown-list"><a id="" href="my-profile.html">Mi perfil</a></li>
+              <hr style="color: rgba(255,255,255,.55);">
+              <li class="dropdown-list"><a id="" href="login.html">Cerrar sesión</a></li>
+            </ul>
+          </div>
         </ul>
       </div>
     </div>
   </nav>
   <main class="mt-5">
+    <h1>Login</h1>
     <div class="main-container short-container-login">
-      <h2 id="h2">LOGIN</h2>
       <form id="login-form">
-        <input type="text" name="user-email" placeholder="Nombre">
+        <input type="text" name="user-name" placeholder="Nombre">
         <input type="password" name="password" placeholder="Contraseña">
         <button type="submit" id="iniciar-sesion-btn">Iniciar sesión</button> <br>
-        <a href="sign-in.html">Registrarse</a>
+        <!-- mala práctica pero no puedo usar un botón -->
+        <a id="sign-in-btn" href="/sign-in.html">Registrarse</a>
       </form>
     </div>
   </main>
@@ -70,6 +80,7 @@
   </footer>
   <script src="js/login.js" type="module"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/general.js"></script>
 </body>
 
 </html>

@@ -1,9 +1,12 @@
-# eComerce
+# workspace-inicial
 
-# endpoints
-
-101 : autos;
-102 : juguetes;
-103 : muebles;
-105 : computadoras;
+# Entrega 4
+- Falta parte 3
+# General
+- Hacer product-info responsive
+- La seleccion de foto de perfil está bug
+- El menú de los filtros @matiaspercoco
+- Pantalla de carga hasta que se consigan los datos de la API
+- Guardar el comentario del usuario en el local storage
+# Mati entero wn
 

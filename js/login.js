@@ -5,22 +5,23 @@ document.addEventListener('DOMContentLoaded',()=>{
     let logueado = false;
     //mientras el usuario no esté logueado se guarda en el almacenamiento local que no lo está.
     localStorage.setItem('logueado','false');
-    console.log(logueado)
+    //conseguir los datos del registro.
+    let userData = localStorage.getItem('user-data').split(',');
+    console.log(userData[3])
 
     document.getElementById('iniciar-sesion-btn').addEventListener('click',(e)=>{
         e.preventDefault();
         //al hacer click en el botón iniciar sesión se verifica que ningún campo esté vacío.
-        let userNameInput = formulario.querySelector('input[name="user-email"]');
+        let userNameInput = formulario.querySelector('input[name="user-name"]');
         let passwordInput = formulario.querySelector('input[name="password"]');
-        if(userNameInput.value === '' || passwordInput.value === '' ) {
-            alert('Complete ambos campos')
-        }
-        else {
-            //si completa ambos campos se redirije al usuario al index y se guarda logueado como verdadero.
-            window.location.href = './index.html';
+
+        if(userNameInput.value === userData[0] && passwordInput.value === userData[3] ) {
             logueado = true;
             localStorage.setItem('logueado', 'true');
-            localStorage.setItem('nombreUsuario',userNameInput.value)
+            window.location.href = './index.html';
+        }
+        else {
+           alert('datos incorectos')
         }
     })
     // no permite cambiar de pestaña si no se loguea primero.
@@ -31,4 +32,8 @@ document.addEventListener('DOMContentLoaded',()=>{
             alert('Tiene que iniciar sesión');
         }
     }));
+    //llevar al registro
+    document.getElementById('sign-in-btn').addEventListener('click',()=>{
+        window.location.href = './sign-in.html';
+    })
 })
