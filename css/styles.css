@@ -235,7 +235,7 @@ a.custom-card:hover {
   color: rgb(200, 196, 196);
 }
 .lead {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 @media screen and (max-width:1000px) {
@@ -248,3 +248,14 @@ a.custom-card:hover {
     height: 300px;
   }
 }
+
+/* Estilos para el modo nocturno */
+body.dark-mode {
+  background-color: #222222; /* Cambia el color de fondo */
+color: white;
+
+  
+}
+
+
+
