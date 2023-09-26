@@ -1,9 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const logueado = localStorage.getItem('logueado');
-    if (logueado === 'false') {
-        window.location.href = '../login.html';
-    }
-    document.getElementById('perfil-a').textContent = localStorage.getItem('nombreUsuario');
+  
   // catID se guarda al dar click en una categoría.
   let endPoint = localStorage.getItem('catID');
   const url = `https://japceibal.github.io/emercado-api/cats_products/${endPoint}.json`;

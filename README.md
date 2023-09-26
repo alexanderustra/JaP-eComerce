@@ -1,7 +1,12 @@
 # workspace-inicial
 
-# Entrega 3
-- parece que lo escribí a piñas, pero quedó el css.
-- guardar en el local storage el comentario realizado por el usuario
+# Entrega 4
+- Falta parte 3
+# General
+- Hacer product-info responsive
+- La seleccion de foto de perfil está bug
+- El menú de los filtros @matiaspercoco
+- Pantalla de carga hasta que se consigan los datos de la API
+- Guardar el comentario del usuario en el local storage
 # Mati entero wn
 

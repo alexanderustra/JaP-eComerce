@@ -32,4 +32,8 @@ document.addEventListener('DOMContentLoaded',()=>{
             alert('Tiene que iniciar sesión');
         }
     }));
+    //llevar al registro
+    document.getElementById('sign-in-btn').addEventListener('click',()=>{
+        window.location.href = './sign-in.html';
+    })
 })

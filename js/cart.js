@@ -1,10 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const logueado = localStorage.getItem('logueado');
-    if (logueado === 'false' || logueado === null) {
-        window.location.href = '../login.html';
-    }
-    document.getElementById('perfil-a').textContent = localStorage.getItem('nombreUsuario');
-
+    
     fetch('https://japceibal.github.io/emercado-api/user_cart/25801.json')
         .then(response => response.json())
         .then(data => {

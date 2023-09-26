@@ -195,6 +195,34 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+.dropdown-menu { 
+  background-color: #212529;
+  animation: menu .2s;
+}
+@keyframes menu {
+  0% {
+    position: absolute;
+    top: -100%;
+    opacity: .4;
+  }
+  
+  100% {
+   opacity: 1;
+  }
+}
+
+.dropdown-list{
+  text-align: center;  
+}
+
+.dropdown-list a {
+  color:rgba(255, 255, 255, 0.5) ;  
+}
+#sign-off-btn {
+  background-color: #212529;
+  border: none;
+  color:rgba(255, 255, 255, 0.5)
+}
 #perfil-a {
   position: relative;
   top: 8px;

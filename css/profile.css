@@ -92,7 +92,11 @@ img {
     background-color:  #ecf7f6;
     border: 2px solid #F09100;
 }
-
+#sign-in-btn {
+    margin-top: 20px;
+    height: 40px;
+    width: 150px;
+}
 #main-container-profile {
     margin-top: 50px;
     height:720px ;
