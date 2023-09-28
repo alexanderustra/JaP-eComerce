@@ -148,3 +148,10 @@ footer {
     padding: 20px;
     width: 500px;
 }
+/* Estilos para el modo nocturno */
+body.dark-mode {
+    background-color: #222; /* Cambia el color de fondo */
+    /* Cambia el color del texto */
+}
+
+/* Puedes ajustar otros estilos según tus preferencias */

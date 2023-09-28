@@ -1,23 +1,33 @@
-document.getElementById('dark-mode').addEventListener('click',()=>{
-    document.body.style.backgroundColor = 'grey'
-    var paragraphs = document.getElementsByTagName('label');
-    var h4 = document.getElementsByTagName('h4');
-    var p = document.getElementsByTagName('p');
-    let categoryList = document.querySelectorAll('.list-group-item');
+// Función para activar o desactivar el modo oscuro
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
 
-    for (var i = 0; i < categoryList.length; i++) {
-        categoryList[i].style.backgroundColor = 'brown';
-        categoryList[i].style.borderColor = 'white'
+    // Almacenar el estado actual del modo oscuro en el localStorage
+    if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('modo-nocturno', 'true');
+    } else {
+        localStorage.setItem('modo-nocturno', 'false');
     }
-    for (var i = 0; i < p.length; i++) {
-        p[i].style.color = 'white'
-    }
-    for (var i = 0; i < paragraphs.length; i++) {
-        paragraphs[i].style.color = 'white'
-    }
+}
 
-    for (var i = 0; i < h4.length; i++) {
-        paragraphs[i].style.color = 'white'
-        h4[i].style.color = 'white'
+// Verificar el estado del modo nocturno al cargar la página
+function checkDarkMode() {
+    const modoNocturno = localStorage.getItem('modo-nocturno');
+    const body = document.body;
+
+    if (modoNocturno === 'true') {
+        body.classList.add('dark-mode');
+    } else {
+        body.classList.remove('dark-mode');
     }
-})
+}
+
+// Agregar un evento de clic al botón de cambio de modo
+const toggleModeButton = document.getElementById('toggle-mode');
+if (toggleModeButton) {
+    toggleModeButton.addEventListener('click', toggleDarkMode);
+}
+
+// Verificar el modo oscuro al cargar la página
+window.addEventListener('DOMContentLoaded', checkDarkMode);
