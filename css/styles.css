@@ -260,9 +260,6 @@ a.custom-card:hover {
       transform: rotate(360deg); /* Ángulo final de rotación (360 grados, una vuelta completa) */
   }
 }
-.lead {
-  color: rgb(0, 0, 0);
-}
 
 @media screen and (max-width:1000px) {
   .short-container {
@@ -275,13 +272,33 @@ a.custom-card:hover {
   }
 }
 
+.lead {
+  color: rgb(0, 0, 0);
+}
+
 /* Estilos para el modo nocturno */
 body.dark-mode {
   background-color: #222222; /* Cambia el color de fondo */
 color: white;
-
-  
 }
 
+body.dark-mode .lead {
+color: white;
+}
+body.dark-mode .card-text {
+color: #222222;
 
+}
+body.dark-mode .m-3 {
+  color: #222222;
+  
+  }
 
+  
+  body.dark-mode .album{
+    background-color: rgb(109, 109, 109);
+    
+    }
+    
+
+    

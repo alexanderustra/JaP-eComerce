@@ -135,3 +135,7 @@ img {
         font-size: 18px;
     }
 }
+
+body.dark-mode .profile-data {
+    color: rgb(15, 15, 15);
+    }
