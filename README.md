@@ -8,5 +8,6 @@
 - El menú de los filtros @matiaspercoco
 - Pantalla de carga hasta que se consigan los datos de la API
 - Guardar el comentario del usuario en el local storage
+- optimizar código el carrito, está bug, no c qué.
 # Mati entero wn
 
