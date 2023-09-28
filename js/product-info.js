@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="price-and-sold">Vendidos: ${data.soldCount}</p>
                     <input type = 'number' placeholder = 'Cantidad' min = '1'>
                     <button>Comprar</button>
-                    <button>Añadir al carrito</button>
+                    <button id = 'add-to-cart'>Añadir al carrito</button>
 
                     <div id = 'seller-info'>
                         <h4>Nombre Vendedor</H4>
@@ -103,6 +103,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 location.reload()
             }
         });
+
+        //------------------------- Cargando productos al carrito ---------------------------//
+        let cartArray = JSON.parse(localStorage.getItem('cartArray')) || []
+        document.getElementById('add-to-cart').addEventListener('click',()=>{
+            alert('Producto Agregado')
+                cartArray.push(data.id)
+                localStorage.setItem('cartArray',JSON.stringify(cartArray))
+        })
+
+        //quitar pantalla de carga
+        document.getElementById('loading-screen').style.display = 'none';
     })
     .catch(error => console.error('Error fetching data:', error));
     
@@ -181,4 +192,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
     })
+    
 });
