@@ -2,8 +2,7 @@
 function toggleDarkMode() {
     const body = document.body;
     body.classList.toggle('dark-mode');
-
-    // Almacenar el estado actual del modo oscuro en el localStorage
+// Almacenar el estado actual del modo oscuro en el localStorage
     if (body.classList.contains('dark-mode')) {
         localStorage.setItem('modo-nocturno', 'true');
     } else {
@@ -31,3 +30,4 @@ if (toggleModeButton) {
 
 // Aseguramos que cargue el modo oscuro al cargar la página
 window.addEventListener('DOMContentLoaded', checkDarkMode);
+
