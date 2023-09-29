@@ -16,8 +16,6 @@ traer los elementos del local storage.
 - Bug con el arreglo de elementos del carrito.
 a veces no elimina el último elemento del local storage,
 esto suele pasar cuando quedan menos de dos elementos.
-- bug en el login.
-cuando no se está logueado y redirige al login la página
-se recarga en un bucle infinito.
+
 # Mati entero wn
 
