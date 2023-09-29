@@ -29,5 +29,5 @@ if (toggleModeButton) {
     toggleModeButton.addEventListener('click', toggleDarkMode);
 }
 
-// Verificar el modo oscuro al cargar la página
+// Aseguramos que cargue el modo oscuro al cargar la página
 window.addEventListener('DOMContentLoaded', checkDarkMode);
