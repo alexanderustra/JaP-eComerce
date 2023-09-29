@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         }
     }));
     //llevar al registro
-    document.getElementById('sign-in-btn').addEventListener('click',()=>{
-        window.location.href = './sign-in.html';
-    })
+    //document.getElementById('sign-in-btn').addEventListener('click',()=>{
+        //window.location.href = './sign-in.html';
+   // })
 })
