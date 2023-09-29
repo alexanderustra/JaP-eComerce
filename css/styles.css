@@ -300,5 +300,14 @@ body.dark-mode .m-3 {
     
     }
     
-
+#toggle-mode {
+  margin-top: 5px;
+  width: 140px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 17px;
+  background-color: #e6e66e;
+  color: rgb(3, 3, 3);
+}
     
