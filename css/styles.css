@@ -275,13 +275,5 @@ a.custom-card:hover {
   }
 }
 
-/* Estilos para el modo nocturno */
-body.dark-mode {
-  background-color: #222222; /* Cambia el color de fondo */
-color: white;
-
-  
-}
-
 
 
