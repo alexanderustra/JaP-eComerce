@@ -1,10 +1,14 @@
+// Función para activar o desactivar el modo oscuro
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
 // Almacenar el estado actual del modo oscuro en el localStorage
     if (body.classList.contains('dark-mode')) {
         localStorage.setItem('modo-nocturno', 'true');
     } else {
         localStorage.setItem('modo-nocturno', 'false');
     }
-
+}
 
 // Verificar el estado del modo nocturno al cargar la página
 function checkDarkMode() {
