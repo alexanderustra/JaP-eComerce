@@ -153,5 +153,6 @@ body.dark-mode {
     background-color: #222; /* Cambia el color de fondo */
     /* Cambia el color del texto */
 }
-
-/* Puedes ajustar otros estilos según tus preferencias */
+ body.dark-mode .conta2 {
+    color: #222;
+ }
