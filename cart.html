@@ -51,6 +51,29 @@
     <div class="container" id="container">
       
     </div>
+    <div class="form-envio">
+<!-- Controles de envío -->
+<h2>Seleccione tipo de envío:</h2>
+<div class="checkboxes"><label>
+  <input class="box" type="radio" name="shipping-type" value="estandar"> Envío estándar
+</label>
+<br>
+<label>
+  <input class="box" type="radio" name="shipping-type" value="express"> Envío express
+</label>
+</div>
+
+<!-- Controles de dirección -->
+<h2>Dirección de entrega:</h2>
+<label for="street">Calle:</label>
+<input type="text" id="street" name="street" required>
+
+<label for="street-number">Número:</label>
+<input type="text" id="street-number" name="street-number" required>
+
+<label for="corner">Esquina:</label>
+<input type="text" id="corner" name="corner" required>
+    </div>
     <div id="user-controls">
       <button id="finish-buy">Finalizar Compra</button>
       <a href="index.html" id="keep-buying">Seguir Comprando</a>

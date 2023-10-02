@@ -41,9 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="info-container">
                     <div class="name-and-price">
                     <h2>${data.name}</h2>
-                    <h2 class="product-cost">${data.cost} ${data.currency}</h2>
+                    <h2 class="product-total" class="product-cost">${data.cost} ${data.currency}</h2>
                     </div>
-                    <h2 class="product-info product-name"> Cantidad : 1</h2>
+                    <div class="quantity-container">
+                    <input type="number" class="product-quantity" value="1" min="1" data-product-id="${product}">
+                    </div>
+                   
                     <button class="cart delete-btns" product-id = '${product}'>
                         <span class="material-symbols-outlined">
                             delete
@@ -79,4 +82,5 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => console.log(error));
     })
+    
 });
