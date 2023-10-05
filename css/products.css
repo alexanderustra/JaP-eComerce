@@ -203,4 +203,28 @@ h1 {
     margin-left: 10px;
   }
 }
+
+
+
 }
+.form-envio{
+  margin: 80px auto; 
+  text-align: center; 
+}
+
+.form-envio input {
+    display: block;
+    margin-bottom: px;
+    margin-left: 43%;
+  }
+
+  .form-envio .box {
+    display: block;
+    margin-left: 0%;
+
+  }
+
+  .form-envio label {
+    margin: 13px;
+
+  }
