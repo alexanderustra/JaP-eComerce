@@ -29,103 +29,16 @@ button {
     height: 55px;
     border-bottom: 2px solid #F09100;
   }
-  .product-list{
-    display: flex;
-    flex-wrap: wrap;
-    height: 170px;
-    margin: auto;
-    margin-top: 10px;
-    border-radius: 5px;
-    background-color: #ecf7f6;
-    border: solid 2px #F09100; 
-    box-shadow: 4px 4px 7px 2px rgba(0,0,0,0.43);
-    -webkit-box-shadow: 4px 4px 7px 2px rgba(0,0,0,0.43);
-    -moz-box-shadow: 4px 4px 7px 2px rgba(0,0,0,0.43);
-    transition: .3s;
+
+  .conteinerProduct {
+    display: inline-block;
+    margin: 10px;
+    margin-top: 20px;
+    width: 300px;
+    height: 30vh;
   }
-  .product-list:hover {
-    background-color: #f9f5c9;
-    transform: scale(1.01);
-  }
+
   
-  .product-list img {
-    border-radius: 2px 0px 0px 2px;
-    width: 30%;
-    height: 100%;
-    margin-right: 50px;
-    object-fit: cover;
-  }
-  .product-list h2 {
-    font-size: 25px;
-    color: #49585A;
-    margin: auto;
-    margin-top:10px;
-  }
-  .product-list p {
-    color: #49585A;
-    margin-top: 10px;
-    font-size: 17px;
-    display: inline;
-  }
-  .short-container {
-    width: 30%;
-    height: 300px;
-    margin-top: 150px;
-  }
-  .short-container-login {
-    width: 30%;
-    height: 220px;
-    margin-top: 150px;
-}
-
-.material-symbols-outlined {
-    font-size: 50px;
-}
-.cart {
-  margin-left: 70%;
-  background-color:#F09100;
-}
-
-.hidden {
-  display: none;
-}
-.filters {
-  width: 100px;
-  margin-left: 20px;
-}
-.no-stock-h1 {
-  font-size: 6vw;
-  border-radius: 10px;
-  padding-top: 25px;
-  margin: auto;
-  text-align: center;
-  object-position: center;
-  margin-top: 200px;
-  width: 50%;
-  height: 23vw;
-  color: #49585A;
-  background-color: orange;
-  box-shadow: 10px 10px 10px -2px rgba(0,0,0,0.34);
--webkit-box-shadow: 10px 10px 10px -2px rgba(0,0,0,0.34);
--moz-box-shadow: 10px 10px 10px -2px rgba(0,0,0,0.34);
-}
-
-#filter-btn {
-margin: auto;
-margin-top: 0px;
-}
-#search-section {
-  display: flex;
-  margin: auto;
-  margin-top: 70px;
-  height: 70px;
-  width: 50%;
-  text-align: center;
-}
-#sold-and-btn-container {
-  width: 100%;
-  height: 50px;
-}
 
 @media (max-width: 1000px) {
   body {
@@ -171,4 +84,5 @@ margin-top: 0px;
     width: 50px;
     margin-left: 10px;
   }
+}
 }

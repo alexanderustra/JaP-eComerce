@@ -26,30 +26,23 @@ fetch(url)
     DOM.
     */
     data.products.forEach(product => {
-      const li = document.createElement('li');
-      li.className = 'product-list';
+      const li = document.createElement('div');
+      li.className = 'conteinerProduct';
       li.innerHTML = `
-        <img src="${product.image}" alt="${product.name}">
-        <div class="info-container">
-          <div class="name-and-price">
-            <h2 class="product-info product-name">${product.name}</h2>
-            <h2 class="product-cost">${product.cost} ${product.currency}</h2>
-          </div>
           
-          <p class="product-info product-description">${product.description}</p>
-          
+            <div class="card">
+              <img src="${product.image}" class="card-img-top" alt="${product.name}">
 
-          <div id = 'sold-and-btn-container'> 
-          <p> sold : </p>
-          <p class = 'sold-count'>${product.soldCount}</p>
-          <button class="cart">
-            <span class="material-symbols-outlined">
-              add_shopping_cart
-            </span>
-          </button>
-          </div>
-        </div>
-      `;
+              <div class="card-body">
+                <h5 class="card-title">${product.name}</h5>
+                <p class="card-text">${product.cost} ${product.currency}</p>
+                
+                <p class="card-text">${product.description}</p>
+                <p class="card-text"${product.soldCount}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          `;
       
       productsList.appendChild(li);
 
