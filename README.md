@@ -3,7 +3,6 @@
 # Entrega 4
 - Joya
 # General
-- Hacer product-info responsive
 - La seleccion de foto de perfil está bug.
 al mostrarse el modal para seleccionar foto de perfíl, si se 
 sigue cliqueando la imágen de perfil se siguen mostrando nuevos modales.
@@ -16,6 +15,8 @@ traer los elementos del local storage.
 - Bug con el arreglo de elementos del carrito.
 a veces no elimina el último elemento del local storage,
 esto suele pasar cuando quedan menos de dos elementos.
+
+- si el usuario borra los valores del input de cantidad de productos la suma da NaN
 
 # Mati entero wn
 

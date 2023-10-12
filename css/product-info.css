@@ -156,3 +156,64 @@ body.dark-mode {
  body.dark-mode .conta2 {
     color: #222;
  }
+
+@media screen and (max-width: 1000px) {
+    html {
+        width: 100%;
+        margin: none;
+    }
+    body {
+        width: 100%;
+    }
+    main {
+        width: 100%;
+    }
+    .carousel img {
+        height: 300px;
+    }
+    .comment {
+        width: 90%;
+    }
+    .navbar-toggler {
+        z-index: 99999999;
+    }
+    .nav-item , .dropdown {
+        height: 40px;
+        z-index: 999999999;
+        background-color: #212529;;
+    }
+    #navbarNav {
+        z-index: 9999999999;
+    }
+    #buy-info {
+        width: 100%;
+    }
+    #img-and-seller-container {
+        display: flex;
+        flex-wrap:wrap ;
+        height: 600px;
+        margin-bottom: 530px;
+    }
+     #img-container {
+        width: 100%;
+        height: 200px;
+     }
+     #aside-container {
+        width: 100%;
+        height: 750px;
+     }
+     #related-products-container {
+        width: 100%;
+        height: 600px;
+        flex-wrap: wrap;
+     }
+     #comment-inputs-container {
+        width: 100%;
+     }
+     textarea {
+        width: 90%;
+     }
+     .carousel button {
+        margin-top: 200px;
+    }
+}       
