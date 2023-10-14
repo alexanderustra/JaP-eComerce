@@ -1,15 +1,15 @@
-document.addEventListener('DOMContentLoaded', () => {
-    //------------------------------Trayendo productos desde la API------------------------------//
-    
-        fetch('https://japceibal.github.io/emercado-api/user_cart/25801.json')
-        .then(response => response.json())
-        .then(data => {
-           data.articles.forEach(product => {
-            console.log(product)
-            const li = document.createElement('li');
-            li.classList.add("conteinerProduct");
-            li.classList.add("conteinerProduct-cart");
-            li.innerHTML = `
+document.addEventListener("DOMContentLoaded", () => {
+  //------------------------------Trayendo productos desde la API------------------------------//
+
+  fetch("https://japceibal.github.io/emercado-api/user_cart/25801.json")
+    .then((response) => response.json())
+    .then((data) => {
+      data.articles.forEach((product) => {
+        console.log(product);
+        const li = document.createElement("li");
+        li.classList.add("conteinerProduct");
+        li.classList.add("conteinerProduct-cart");
+        li.innerHTML = `
             <div class="card">
                 <img src="${product.image}" class="card-img-top" alt="${product.name}">
 
@@ -26,35 +26,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
             `;
-            document.getElementById('container').appendChild(li);
-            //---------------- Mostrando el costo total según cantidad de productos ---------------//
+        document.getElementById("container").appendChild(li);
+        //---------------- Mostrando el costo total según cantidad de productos ---------------//
 
-            let amountInput = li.querySelector('.amount-inp');
-            let totalAmountSpan = li.querySelector('.total-amount');
-            totalAmountSpan.innerHTML = product.unitCost;
-            amountInput.addEventListener('input', () => {
-                let amount = parseInt(amountInput.value, 10); 
-                let totalAmount = product.unitCost * amount;
-                totalAmountSpan.textContent = `${totalAmount} ${product.currency
-                }`;
-            });
-            })
+        let amountInput = li.querySelector(".amount-inp");
+        let totalAmountSpan = li.querySelector(".total-amount");
+        totalAmountSpan.innerHTML = product.unitCost;
+        amountInput.addEventListener("input", () => {
+          let amount = parseInt(amountInput.value, 10);
+          let totalAmount = product.unitCost * amount;
+          totalAmountSpan.textContent = `${totalAmount} ${product.currency}`;
+        });
+      });
+    });
 
-            
-        })
-    
-    //--------------------------- añadiendo productos desde el local storage ---------------------------//
-    let cart = JSON.parse(localStorage.getItem('cartArray'));
-    cart.forEach(product => {
-        console.log(product)
-        fetch(`https://japceibal.github.io/emercado-api/products/${product}.json`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                const li = document.createElement('li');
-                li.classList.add("conteinerProduct");
-                li.classList.add("conteinerProduct-cart");
-                li.innerHTML = `
+  //--------------------------- añadiendo productos desde el local storage ---------------------------//
+  let cart = JSON.parse(localStorage.getItem("cartArray"));
+  cart.forEach((product) => {
+    console.log(product);
+    fetch(`https://japceibal.github.io/emercado-api/products/${product}.json`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        const li = document.createElement("li");
+        li.classList.add("conteinerProduct");
+        li.classList.add("conteinerProduct-cart");
+        li.innerHTML = `
                 <div class="card">
                     <img src="${data.images[0]}" class="card-img-top" alt="${data.name}">
 
@@ -72,44 +69,40 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 `;
-                document.getElementById('container').appendChild(li);
-            
-                //---------------- Mostrando el costo total según cantidad de productos ---------------//
+        document.getElementById("container").appendChild(li);
 
-                let amountInput = li.querySelector('.amount-inp');
-                let totalAmountSpan = li.querySelector('.total-amount');
-                totalAmountSpan.innerHTML = data.cost;
-                amountInput.addEventListener('input', () => {
-                    let amount = parseInt(amountInput.value, 10); 
-                    let totalAmount = data.cost * amount;
-                    totalAmountSpan.textContent = `${totalAmount} ${data.currency
-                    }`;
-                });
+        //---------------- Mostrando el costo total según cantidad de productos ---------------//
 
-                //----------------------Eliminando productos del carrito----------------------//
-                let deleteBtns = document.querySelectorAll('.delete-btns');
-                deleteBtns.forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        btn.closest('.conteinerProduct').remove();
-                        let productId = btn.getAttribute('product-id'); // Convertir a número
-                        let index = cart.indexOf(productId);
-                        console.log(index)
-                        // macumba acá cuidao
-                        if(cart.length > 2) {
-                            if (index !== -1) {
-                                cart.splice(index, 1);
-                                localStorage.setItem('cartArray',JSON.stringify(cart))
-                            }
-                        }
-                        else {
-                            cart.splice(index + 1, 1);
-                            localStorage.setItem('cartArray',JSON.stringify(cart))
-                        }
-                    });
-                });
+        let amountInput = li.querySelector(".amount-inp") ;
+        let totalAmountSpan = li.querySelector(".total-amount");
+        totalAmountSpan.innerHTML = data.cost;
+        amountInput.addEventListener("input", () => {
+          let amount = parseInt(amountInput.value, 10);
+          let totalAmount = data.cost * amount;
+          totalAmountSpan.textContent = `${totalAmount} ${data.currency}`;
+        });
 
-
-            })
-            .catch(error => console.log(error));
-    })
+        //----------------------Eliminando productos del carrito----------------------//
+        let deleteBtns = document.querySelectorAll(".delete-btns");
+        deleteBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            btn.closest(".conteinerProduct").remove();
+            let productId = btn.getAttribute("product-id"); // Convertir a número
+            let index = cart.indexOf(productId);
+            console.log(index);
+            // macumba acá cuidao
+            if (cart.length > 2) {
+              if (index !== -1) {
+                cart.splice(index, 1);
+                localStorage.setItem("cartArray", JSON.stringify(cart));
+              }
+            } else {
+              cart.splice(index + 1, 1);
+              localStorage.setItem("cartArray", JSON.stringify(cart));
+            }
+          });
+        });
+      })
+      .catch((error) => console.log(error));
+  });
 });

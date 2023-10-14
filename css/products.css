@@ -1,6 +1,6 @@
 input {
-  color: #49585A;
-  background-color: #F09100;
+  color: #49585a;
+  background-color: #f09100;
   width: 250px;
   height: 50px;
   outline: none;
@@ -9,51 +9,51 @@ input {
   margin: none;
 }
 
-button  {
-  color: #49585A;
-  background-color: #D5DDD5;
+button {
+  color: #49585a;
+  background-color: #d5ddd5;
   margin-left: 20px;
   border: none;
   width: 70px;
   height: 50px;
   border-radius: 5px;
-  }
-  
-  footer {
-    margin-top: 300px;
-    margin-bottom: 0px;
-  }
-  .info-container {
-    width: 60%;
-  }
-  .name-and-price {
-    margin: auto;
-    margin-top: 5px;
-    display: flex;
-    width: 90%;
-    height: 55px;
-    border-bottom: 2px solid #F09100;
-  }
-  
-  .short-container {
-    width: 30%;
-    height: 300px;
-    margin-top: 150px;
-  }
-  .short-container-login {
-    width: 30%;
-    height: 220px;
-    margin-top: 150px;
+}
+
+footer {
+  margin-top: 300px;
+  margin-bottom: 0px;
+}
+.info-container {
+  width: 60%;
+}
+.name-and-price {
+  margin: auto;
+  margin-top: 5px;
+  display: flex;
+  width: 90%;
+  height: 55px;
+  border-bottom: 2px solid #f09100;
+}
+
+.short-container {
+  width: 30%;
+  height: 300px;
+  margin-top: 150px;
+}
+.short-container-login {
+  width: 30%;
+  height: 220px;
+  margin-top: 150px;
 }
 
 .material-symbols-outlined {
-    font-size: 30px;
+  font-size: 30px;
 }
 .cart {
   width: 70%;
   height: 40px;
   border: none;
-  background-color:#F09100;
+  background-color: #f09100;
 }
 
 .hidden {
@@ -74,11 +74,11 @@ button  {
   margin-top: 200px;
   width: 50%;
   height: 23vw;
-  color: #49585A;
+  color: #49585a;
   background-color: orange;
-  box-shadow: 10px 10px 10px -2px rgba(0,0,0,0.34);
--webkit-box-shadow: 10px 10px 10px -2px rgba(0,0,0,0.34);
--moz-box-shadow: 10px 10px 10px -2px rgba(0,0,0,0.34);
+  box-shadow: 10px 10px 10px -2px rgba(0, 0, 0, 0.34);
+  -webkit-box-shadow: 10px 10px 10px -2px rgba(0, 0, 0, 0.34);
+  -moz-box-shadow: 10px 10px 10px -2px rgba(0, 0, 0, 0.34);
 }
 
 .conteinerProduct {
@@ -108,7 +108,7 @@ button  {
   height: 520px;
 }
 .total-amount {
-  color:  #222222;
+  color: #222222;
 }
 .dropdown {
   position: relative;
@@ -125,7 +125,7 @@ button  {
 }
 
 #showMenu {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
 }
@@ -138,12 +138,12 @@ button  {
   text-align: center;
 }
 #filter-btn {
-margin: auto;
-margin-top: 0px;
+  margin: auto;
+  margin-top: 0px;
 }
 #search-section {
   display: flex;
-  flex-wrap:wrap ;
+  flex-wrap: wrap;
   margin: auto;
   margin-top: 70px;
   height: 140px;
@@ -163,16 +163,16 @@ margin-top: 0px;
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 5px;
-  overflow:hidden;
+  overflow: hidden;
 }
 #menu button {
   border-radius: 0px;
 }
 
-@media (max-width: 1000px) { 
+@media (max-width: 1000px) {
   #search-section {
     width: 100%;
   }
@@ -185,5 +185,5 @@ margin-top: 0px;
   #filter-btn {
     margin-right: 20px;
     margin-top: 0px;
-    }
+  }
 }
