@@ -1,0 +1,139 @@
+/* carrito*/
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  input[type="radio"] {
+    width: 20px;
+    height: 20px;
+  }
+  button  {
+    color: #49585A;
+    background-color: #D5DDD5;
+    margin-left: 20px;
+    border: none;
+    width: 70px;
+    height: 50px;
+    border-radius: 5px;
+    }
+    form {
+      text-align: center;
+      margin: auto;
+      margin-top: 20px;
+      width: 100%;
+      height: 400px;
+    }
+  #keep-buying {
+    height: 50px;
+    width: 100px;
+    text-decoration: none;
+    text-align: center;
+    margin: auto;
+    margin-left: 20px;
+  }
+  #finish-buy {
+    margin-left: 0px;
+    margin: auto;
+    margin-right: 20px;
+    background-color: #F09100;
+  }
+  #user-controls {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    height: 100px;
+    width: 100%;
+    margin: auto;
+    margin-top: 50px;
+  }
+  input {
+    color: #49585A;
+    background-color: #F09100;
+    width: 250px;
+    height: 50px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    margin: none;
+  }
+  
+  button  {
+    color: #49585A;
+    background-color: #D5DDD5;
+    margin-left: 20px;
+    border: none;
+    width: 70px;
+    height: 50px;
+    border-radius: 5px;
+    }
+    
+    footer {
+      margin-top: 300px;
+      margin-bottom: 0px;
+    }
+  
+  .material-symbols-outlined {
+      font-size: 30px;
+  }
+  .cart {
+    width: 70%;
+    height: 40px;
+    border: none;
+    background-color:#F09100;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .conteinerProduct {
+    display: inline-block;
+    margin: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 300px;
+    height: 470px;
+  }
+  .card {
+    height: 100%;
+    width: 100%;
+  }
+  .card-body {
+    margin-top: 10px;
+    height: 450px;
+  }
+  .card-title {
+    color: #222222;
+  }
+  .amount-inp {
+    width: 110px;
+    height: 40px;
+  }
+  .conteinerProduct-cart {
+    height: 520px;
+  }
+  .total-amount {
+    color:  #222222;
+  }
+  
+  #container {
+    text-align: center;
+  }
+  
+  @media (max-width: 1000px) { 
+    #search-section {
+      width: 100%;
+    }
+    input {
+      width: 90%;
+    }
+    #search-input {
+      margin: auto;
+    }
+    #filter-btn {
+      margin-right: 20px;
+      margin-top: 0px;
+      }
+  }
