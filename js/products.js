@@ -189,9 +189,9 @@ document.addEventListener("DOMContentLoaded", () => {
       /*si el precio del producto está entre los valores de los inputs se
             mantiene la lista en pantalla*/
       if (productCost >= minPrice && productCost <= maxPrice) {
-        productItem.classList.remove("hidden");
+        productItem.style.display = 'inline-block';
       } else {
-        productItem.classList.add("hidden");
+        productItem.style.display = 'none';
       }
     });
   });
