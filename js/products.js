@@ -29,11 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
             <img src="${product.image}" class="card-img-top" alt="${product.name}">
 
             <div class="card-body">
-              <h5 class="card-title">${product.name}</h5>
-              <p class="card-text">${product.cost} ${product.currency}</p>
+              <h5 class="card-title product-name">${product.name}</h5>
+              <p class="card-text product-cost">${product.cost} ${product.currency}</p>
               
-              <p class="card-text">${product.description}</p>
-              <p class="card-text"${product.soldCount}</p>
+              <p class="card-text product-description">${product.description}</p>
+              <p class="sold-count card-text">${product.soldCount}</p>
               <a href="#" class="btn btn-primary cart" id = 'add-to-cart'> <span class="material-symbols-outlined">
               add_shopping_cart
             </span></a>
@@ -87,15 +87,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
               //si el producto concuerda con el buscador se lo mantiene.
               if (productMatches) {
-                matchedProduct.classList.remove("hidden");
+                matchedProduct.style.display = 'inline-block';
               } else {
                 // si no concuerda se lo oculta.
-                matchedProduct.classList.add("hidden");
+                matchedProduct.style.display = 'none';
               }
             });
           });
 
         //FILTROS
+
+        // menú filtros 
+        document.getElementById("showMenu").addEventListener("click", function() {
+          var menu = document.getElementById("menu");
+          if (menu.style.display === "block") {
+            menu.style.display = "none";
+          } else {
+            menu.style.display = "block";
+          }
+        });
+        
         //limpiar pantalla cada vez que se filtra, para no repetir objetos.
         function clearScreen(product) {
           productsList.innerHTML = "";
