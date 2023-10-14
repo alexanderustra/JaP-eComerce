@@ -1,17 +1,17 @@
 # Entrega 5
 - Nos quedó regular esta mmm
-# Mejoras o Bugs
+## Mejoras o Bugs
 
-# Perfil
+### Perfil
 - La seleccion de foto de perfil está bug.
 al mostrarse el modal para seleccionar foto de perfíl, si se 
 sigue cliqueando la imágen de perfil se siguen mostrando nuevos modales
 
-# Product.info 
+### Product.info 
 
 - Guardar el comentario del usuario en el local storage.
 
-# cart
+### cart
 
 - Optimizar código el carrito.
 Se repiten bloques de código con los 2 botones para agregar.
