@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
               <p class="card-text">${product.cost} ${product.currency}</p>
               
               <p class="card-text">${product.description}</p>
-              <p class="card-text">${product.soldCount}</p>
-              <a href="#" class="btn btn-primary cart" id='add-to-cart'> <span class="material-symbols-outlined">
+              <p class="card-text"${product.soldCount}</p>
+              <a href="#" class="btn btn-primary cart" id = 'add-to-cart'> <span class="material-symbols-outlined">
               add_shopping_cart
             </span></a>
             </div>
@@ -60,39 +60,40 @@ document.addEventListener("DOMContentLoaded", () => {
       con los valores del nombre o descripción de cada lista, las listas cuyo 
       valores no concuerdan se las oculta mediante un cambio de clase.
       */
-        document.getElementById("search-input").addEventListener("keyup", () => {
-          const inputValue = document
-            .getElementById("search-input")
-            .value.toLowerCase();
-          const productList = Array.from(
-            document.querySelectorAll(".conteinerProduct")
-          );
+        document.getElementById("search-input")
+          .addEventListener("keyup", () => {
+            const inputValue = document
+              .getElementById("search-input")
+              .value.toLowerCase();
+            const productList = Array.from(
+              document.querySelectorAll(".conteinerProduct")
+            );
 
-          productList.forEach((matchedProduct) => {
-            // se toma el nombre y descriptción de los productos.
-            const productName = Array.from(
-              matchedProduct.querySelectorAll(".card-title")
-            );
-            const productDescription = Array.from(
-              matchedProduct.querySelectorAll(".card-text")
-            );
-            // se verifica si el valor del input concuerda con el nombre o descripción de algún producto.
-            const productMatches =
-              productName.some((name) =>
-                name.textContent.toLowerCase().includes(inputValue)
-              ) ||
-              productDescription.some((description) =>
-                description.textContent.toLowerCase().includes(inputValue)
+            productList.forEach((matchedProduct) => {
+              // se toma el nombre y descriptción de los productos.
+              const productName = Array.from(
+                matchedProduct.querySelectorAll(".product-name")
               );
-            //si el producto concuerda con el buscador se lo mantiene.
-            if (productMatches) {
-              matchedProduct.classList.remove("hidden");
-            } else {
-              // si no concuerda se lo oculta.
-              matchedProduct.classList.add("hidden");
-            }
+              const productDescription = Array.from(
+                matchedProduct.querySelectorAll(".product-description")
+              );
+              // se verifica si el valor del input concuerda con el nombre o descripción de algún producto.
+              const productMatches =
+                productName.some((name) =>
+                  name.textContent.toLowerCase().includes(inputValue)
+                ) ||
+                productDescription.some((description) =>
+                  description.textContent.toLowerCase().includes(inputValue)
+                );
+              //si el producto concuerda con el buscador se lo mantiene.
+              if (productMatches) {
+                matchedProduct.classList.remove("hidden");
+              } else {
+                // si no concuerda se lo oculta.
+                matchedProduct.classList.add("hidden");
+              }
+            });
           });
-        });
 
         //FILTROS
         //limpiar pantalla cada vez que se filtra, para no repetir objetos.
@@ -114,27 +115,25 @@ document.addEventListener("DOMContentLoaded", () => {
           clearScreen(sortedProducts);
         };
 
-        
-
         document
           .getElementById("sort-sales-asc-btn")
           .addEventListener("click", () => {
-            sortProducts(".card-text", true);
+            sortProducts(".sold-count", true);
           });
         document
           .getElementById("sort-sales-desc-btn")
           .addEventListener("click", () => {
-            sortProducts(".card-text", false);
+            sortProducts(".sold-count", false);
           });
         document
           .getElementById("sort-price-asc")
           .addEventListener("click", () => {
-            sortProducts(".card-text", true);
+            sortProducts(".product-cost", true);
           });
         document
           .getElementById("sort-price-desc")
           .addEventListener("click", () => {
-            sortProducts(".card-text", false);
+            sortProducts(".product-cost", false);
           });
       });
 
@@ -147,7 +146,9 @@ document.addEventListener("DOMContentLoaded", () => {
         addBtn.addEventListener("click", (e) => {
           e.stopPropagation();
           e.preventDefault();
-          const idOfList = addBtn.closest(".conteinerProduct").getAttribute("list-id");
+          const idOfList = addBtn
+            .closest(".conteinerProduct")
+            .getAttribute("list-id");
           cartArray.push(idOfList);
           localStorage.setItem("cartArray", JSON.stringify(cartArray));
           console.log(cartArray)
@@ -159,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //FILTRO POR RANGO DE PRECIO.
   document.getElementById("filter-btn").addEventListener("click", function () {
-    let productPrices = document.querySelectorAll(".card-text");
+    let productPrices = document.querySelectorAll(".product-cost");
     let minPrice = document.getElementById("rangeFilterPriceMin").value;
     let maxPrice = document.getElementById("rangeFilterPriceMax").value;
 
@@ -167,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let productCost = parseFloat(product.textContent);
       let productItem = product.closest(".conteinerProduct");
       /*si un campo se mantiene vacío se le asigna un valor predeterminado,
-        ya sea 0, para el mínimo o infinito para el máximo*/
+            ya sea 0, para el minimo o infinito para el maximo*/
       if (minPrice === "" || minPrice === undefined) {
         minPrice = 0;
       }
@@ -175,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
         maxPrice = Infinity;
       }
       /*si el precio del producto está entre los valores de los inputs se
-        mantiene la lista en pantalla*/
+            mantiene la lista en pantalla*/
       if (productCost >= minPrice && productCost <= maxPrice) {
         productItem.classList.remove("hidden");
       } else {
@@ -184,4 +185,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
