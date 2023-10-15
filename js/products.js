@@ -22,30 +22,24 @@ document.addEventListener("DOMContentLoaded", () => {
     */
       data.products.forEach((product) => {
         const li = document.createElement("li");
-        li.className = "product-list";
+        li.className = "conteinerProduct";
         li.setAttribute("list-id", product.id);
         li.innerHTML = `
-        <img src="${product.image}" alt="${product.name}">
-        <div class="info-container">
-          <div class="name-and-price">
-            <h2 class="product-info product-name">${product.name}</h2>
-            <h2 class="product-cost">${product.cost} ${product.currency}</h2>
-          </div>
-          
-          <p class="product-info product-description">${product.description}</p>
-          
+          <div class="card">
+            <img src="${product.image}" class="card-img-top" alt="${product.name}">
 
-          <div id = 'sold-and-btn-container'> 
-          <p> sold : </p>
-          <p class = 'sold-count'>${product.soldCount}</p>
-          <button class="cart" id = 'add-to-cart'>
-            <span class="material-symbols-outlined">
+            <div class="card-body">
+              <h5 class="card-title product-name">${product.name}</h5>
+              <p class="card-text product-cost">${product.cost} ${product.currency}</p>
+              
+              <p class="card-text product-description">${product.description}</p>
+              <p class="sold-count card-text">${product.soldCount}</p>
+              <a href="#" class="btn btn-primary cart" id = 'add-to-cart'> <span class="material-symbols-outlined">
               add_shopping_cart
-            </span>
-          </button>
+            </span></a>
+            </div>
           </div>
-        </div>
-      `;
+        `;
 
         productsList.appendChild(li);
 
@@ -72,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
               .getElementById("search-input")
               .value.toLowerCase();
             const productList = Array.from(
-              document.querySelectorAll(".product-list")
+              document.querySelectorAll(".conteinerProduct")
             );
 
             productList.forEach((matchedProduct) => {
@@ -93,15 +87,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
               //si el producto concuerda con el buscador se lo mantiene.
               if (productMatches) {
-                matchedProduct.classList.remove("hidden");
+                matchedProduct.style.display = 'inline-block';
               } else {
                 // si no concuerda se lo oculta.
-                matchedProduct.classList.add("hidden");
+                matchedProduct.style.display = 'none';
               }
             });
           });
 
         //FILTROS
+
+        // menú filtros 
+        document.getElementById("showMenu").addEventListener("click", function() {
+          var menu = document.getElementById("menu");
+          if (menu.style.display === "block") {
+            menu.style.display = "none";
+          } else {
+            menu.style.display = "block";
+          }
+        });
+        
         //limpiar pantalla cada vez que se filtra, para no repetir objetos.
         function clearScreen(product) {
           productsList.innerHTML = "";
@@ -111,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const sortProducts = (selector, ascending) => {
-          const productList = document.querySelectorAll(".product-list");
+          const productList = document.querySelectorAll(".conteinerProduct");
           const sortedProducts = Array.from(productList).sort((a, b) => {
             const valueA = parseInt(a.querySelector(selector).textContent);
             const valueB = parseInt(b.querySelector(selector).textContent);
@@ -153,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
           e.stopPropagation();
           e.preventDefault();
           const idOfList = addBtn
-            .closest(".product-list")
+            .closest(".conteinerProduct")
             .getAttribute("list-id");
           cartArray.push(idOfList);
           localStorage.setItem("cartArray", JSON.stringify(cartArray));
@@ -172,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     productPrices.forEach((product) => {
       let productCost = parseFloat(product.textContent);
-      let productItem = product.closest(".product-list");
+      let productItem = product.closest(".conteinerProduct");
       /*si un campo se mantiene vacío se le asigna un valor predeterminado,
             ya sea 0, para el minimo o infinito para el maximo*/
       if (minPrice === "" || minPrice === undefined) {
@@ -184,9 +189,9 @@ document.addEventListener("DOMContentLoaded", () => {
       /*si el precio del producto está entre los valores de los inputs se
             mantiene la lista en pantalla*/
       if (productCost >= minPrice && productCost <= maxPrice) {
-        productItem.classList.remove("hidden");
+        productItem.style.display = 'inline-block';
       } else {
-        productItem.classList.add("hidden");
+        productItem.style.display = 'none';
       }
     });
   });

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     document.getElementById('perfil-a').textContent = localStorage.getItem('nombreUsuario');
 
-    //consiguiendo info del producto
+    //---------------------------------consiguiendo el producto-----------------------------//
     let productId = localStorage.getItem('productID');
     let urlPoducto = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
     fetch(urlPoducto)
@@ -13,9 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => { 
         console.log(data)
         let container = document.createElement('DIV');
-        /* se crea un arreglo donde, por cada url que mande la API, se crea un elemento
-            HTML img con esa url.
-        */
 
         let relatedProductsHtml = data.relatedProducts.map(product => `
             <div class="related-product" data-product-id="${product.id}">
@@ -66,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div id="buy-info">
                     <p class="price-and-sold">${data.cost} ${data.currency}</p>
                     <p class="price-and-sold">Vendidos: ${data.soldCount}</p>
-                    <input type = 'number' placeholder = 'Cantidad' min = '1'>
                     <button>Comprar</button>
                     <button id = 'add-to-cart'>Añadir al carrito</button>
 
@@ -117,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(error => console.error('Error fetching data:', error));
     
-    //consiguiendo comentarios
+    //-------------------------- consiguiendo comentarios ---------------------------------//
     let urlComentarios = `https://japceibal.github.io/emercado-api/products_comments/${productId}.json`
     fetch(urlComentarios)
     .then(response => response.json())
