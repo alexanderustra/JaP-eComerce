@@ -125,9 +125,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('coment-container').appendChild(coment);
         document.getElementById('comment-inputs-container').style.display = 'none';
 
-        // Guardando en el localStorage el comentario.
-        localStorage.setItem('userComment', coment.innerHTML);
-        console.log(localStorage.getItem('userComment'));
+        //guardando en el localStorage el comentario.
+        localStorage.setItem('userComment',coment.innerHTML);
+        console.log(localStorage.getItem('userComment'))
 
         // Editar comentario
         let editable = false;
