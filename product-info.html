@@ -31,38 +31,28 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <!--Navegacion nueva-->
-          <div class="dropdown">
-            <a href="#" role="button" id="perfil-a" data-bs-toggle="dropdown" >
-              Perfil
-            </a>          
-            <ul class="dropdown-menu">
-              <li class="dropdown-list"><a id="" href="cart.html">Mi carrito</a></li>
-              <hr style="color: rgba(255,255,255,.55);">
-              <li class="dropdown-list"><a id="" href="my-profile.html">Mi perfil</a></li>
-              <hr style="color: rgba(255,255,255,.55);">
-              <li class="dropdown-list"><a id="" href="login.html">Cerrar sesión</a></li>
-              
-            </ul>
-            
-          </div>
+          <li class="nav-item">
+            <a href="my-profile.html" id="perfil-a">Pefil</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
+  <div id="loading-screen">
+    <span><img src="img/profile-imgs/bana.jpeg" alt=""></span>
+  </div>
   <main>
     <div class="container" id="container">
-
     </div>
-    <div>
+    <div class="conta2">
         <h2>Valoración del Producto</h2>
         <h1>⭐⭐⭐⭐⭐</h1>
     </div>
 
-    <section id="coment-container">
+    <section class="conta2" id="coment-container">
     </section>
     
-    <section id="comment-inputs-container">
+    <section class="conta2" id="comment-inputs-container">
         <h4>Comentar</h4>
         <textarea name="textarea" id="user-text"></textarea>
         <select name="puntaje" id="puntaje">
@@ -95,6 +85,8 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script src="js/general.js"></script>
+  <script src="js/dark-mode.js"></script>
 </body>
 
 </html>

@@ -45,6 +45,18 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
+          <div class="dropdown">
+            <a href="#" role="button" id="perfil-a" data-bs-toggle="dropdown" >
+              Perfil
+            </a>          
+            <ul class="dropdown-menu">
+              <li class="dropdown-list"><a id="" href="cart.html">Mi carrito</a></li>
+              <hr style="color: rgba(255,255,255,.55);">
+            </ul>
+          </div>
+          <li class="nav-item">
+          <button id="toggle-mode">Cambiar Modo</button>
+        </li>
         </ul>
       </div>
     </div>
@@ -52,7 +64,7 @@
   <main>
       <h1>Perfil</h1>
         <div id="main-container-profile">
-        <img src="img/profile-imgs/option1" alt="profile-image" id="profile-img">
+        <img src="img/profile-imgs/option1.jpg" alt="profile-image" id="profile-img">
         <h2 class="profile-data">Fulano de Tal</h2>
         <h3 class="profile-data">Correro: correo@gmail.com</h3>
         <h3 class="profile-data">Teléfono: 099 666 666</h3>
@@ -73,6 +85,8 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
+  <script src="js/general.js"></script>
+  <script src="js/dark-mode.js"></script>
 </body>
 
 </html>

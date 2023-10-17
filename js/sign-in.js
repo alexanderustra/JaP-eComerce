@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+    
     document.getElementById('sign-in-btn').addEventListener('click',(e)=>{
         e.preventDefault();
         //al hacer click en iniciar sesión se guarda en el local storage que está logueado, para que en el index no redirija.

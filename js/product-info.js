@@ -5,14 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     document.getElementById('perfil-a').textContent = localStorage.getItem('nombreUsuario');
 
-    // Consiguiendo info del producto
+    //consiguiendo info del producto
     let productId = localStorage.getItem('productID');
     let urlPoducto = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
     fetch(urlPoducto)
-        .then(response => response.json())
-        .then(data => {
-            let container = document.createElement('div');
-            let imagesHtml = data.images.map(image => `<img src="${image}">`).join('');
+    .then(response => response.json())
+    .then(data => { 
+        console.log(data)
+        let container = document.createElement('DIV');
+        /* se crea un arreglo donde, por cada url que mande la API, se crea un elemento
+            HTML img con esa url.
+        */
+        let imagesHtml = data.images.map(image => `<img src="${image}">`).join('');
 
             let relatedProductsHtml = data.relatedProducts.map(product => `
                 <div class="related-product" data-product-id="${product.id}">
@@ -22,57 +26,59 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `).join('');
 
-            container.innerHTML = `
-                <h1>${data.name}</h1>
-                <section id="img-and-seller-container">
-                    <div id="img-container">
-                        ${imagesHtml}
-                    </div>
-                    <div id="aside-container">
-                        <div id="buy-info">
-                            <p class="price-and-sold">${data.cost} ${data.currency}</p>
-                            <p class="price-and-sold">Vendidos: ${data.soldCount}</p>
-                            <input type="number" placeholder="Cantidad" min="1">
-                            <button>Comprar</button>
-                            <button>Añadir al carrito</button>
-                            <div id="seller-info">
-                                <h4>Nombre Vendedor</h4>
-                                <h5>Categoría prémium</h5>
-                                <h4>Valoración</h4>
-                                <h4>⭐⭐⭐⭐</h4>
-                                <h5>Productos Vendidos</h5>
-                                <h5>294</h5>
-                                <input type="text">
-                                <button>Preguntar</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <h2>Descripción del producto</h2>
-                <p>${data.description}</p>
-                <h2>Productos similares</h2>
-                <div id="related-products-container">
-                    ${relatedProductsHtml}
+         // finalmente se muestran el pantalla todos los datos.
+        container.innerHTML = `
+            <h1>${data.name}</h1>
+            <section id = 'img-and-seller-container'>
+                <div id="img-container">
+                    ${imagesHtml}
                 </div>
-            `;
+                <div id = 'aside-container'> 
+                    <div id="buy-info">
+                    <p class="price-and-sold">${data.cost} ${data.currency}</p>
+                    <p class="price-and-sold">Vendidos: ${data.soldCount}</p>
+                    <input type = 'number' placeholder = 'Cantidad' min = '1'>
+                    <button>Comprar</button>
+                    <button>Añadir al carrito</button>
+
+                    <div id = 'seller-info'>
+                        <h4>Nombre Vendedor</H4>
+                        <h5>Categoría prémium</H5>
+                        <h4>Valoración</H4>
+                        <h4>⭐⭐⭐⭐</H4>
+                        <h5>Productos Vendidos</H5>
+                        <h5>294</H5>
+                        <input type = 'text'>
+                        <button>Preguntar</button>
+                    </div>
+                </div>
+                </div>
+            </section>
+            <h2>Descripción del producto</h2>
+            <p>${data.description}</p>
+            <h2>Productos similares</h2>
+            <div id="related-products-container">
+                ${relatedProductsHtml}
+            </div>
+        `
 
             document.getElementById('container').appendChild(container);
 
-            // Al hacer clic en un producto relacionado, se almacena su ID en la variable selectedProductId.
-            document.getElementById('related-products-container').addEventListener('click', (event) => {
-                const clickedProduct = event.target.closest('.related-product');
-                if (clickedProduct) {
-                    const selectedProductId = clickedProduct.getAttribute('data-product-id');
-                    // Se recarga la página con los datos del producto.
-                    localStorage.setItem('productID', selectedProductId);
-                    location.reload();
-                }
-            });
-        })
-        .catch(error => console.error('Error fetching data:', error));
-
-    // Consiguiendo comentarios
-    let urlComentarios = `https://japceibal.github.io/emercado-api/products_comments/${productId}.json`;
+        // Al hacer clic en un producto relacionado, se almacena su ID en la variable selectedProductId.
+        document.getElementById('related-products-container').addEventListener('click', (event) => {
+            const clickedProduct = event.target.closest('.related-product');
+            if (clickedProduct) {
+                const selectedProductId = clickedProduct.getAttribute('data-product-id');
+                // se recarga la página con los datos el producto.
+                localStorage.setItem('productID',selectedProductId)
+                location.reload()
+            }
+        });
+    })
+    .catch(error => console.error('Error fetching data:', error));
+    
+    //consiguiendo comentarios
+    let urlComentarios = `https://japceibal.github.io/emercado-api/products_comments/${productId}.json`
     fetch(urlComentarios)
         .then(response => response.json())
         .then(data => {
@@ -146,6 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 commentText.textContent = editedText;
                 document.getElementById('edited').textContent = 'editado';
             }
-        });
-    });
+        })
+    })
 });

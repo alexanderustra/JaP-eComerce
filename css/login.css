@@ -1,4 +1,4 @@
-p {
+#h2,p {
     margin-top: 20px;
     color: white;
 }
@@ -8,7 +8,6 @@ input, button[type = submit], .container-form {
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.3);
 }
 form {
-    margin-top: 20px;
     margin: auto;
     display: inline-block;
     text-align: center;
@@ -25,7 +24,7 @@ input {
     border-radius: 10px;
     outline: none;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 20px;
     margin-left: 20px;
     margin-bottom: 20px;
 } 
@@ -53,9 +52,10 @@ button[type = submit]:hover {
     border-radius: 10px;
     background-color:rgb(45, 92, 117) ;
 }
-#login-form {
-    margin-top: 100px;
-    background-color: red;
+
+#h2 {
+    padding-top: 30px;
+    padding-bottom: 10px;
 }
 @media (max-width: 768px){
     .container-form {
