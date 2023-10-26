@@ -106,3 +106,68 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) => console.log(error));
   });
 });
+document.addEventListener('DOMContentLoaded', function() {
+  const comprarButton = document.querySelector('#finish-buy');
+  const streetInput = document.getElementById('street');
+  const streetNumberInput = document.getElementById('street-number');
+  const cornerInput = document.getElementById('corner');
+  const shippingInputs = document.querySelectorAll('input[name="shipping-type"]');
+  const amountInputs = document.querySelectorAll('.amount-inp');
+  const paymentMethodInputs = document.querySelectorAll('input[name="payment-method"]');
+  const paymentFields = document.querySelectorAll('.payment-fields input');
+
+  comprarButton.addEventListener('click', function() {
+    // Verificar si los campos de dirección no están vacíos
+    if (streetInput.value.trim() === '' || streetNumberInput.value.trim() === '' || cornerInput.value.trim() === '') {
+      alert('Los campos de dirección no pueden estar vacíos.');
+      return;
+    }
+
+    // Verificar si se ha seleccionado una forma de envío
+    let selectedShipping = false;
+    shippingInputs.forEach(input => {
+      if (input.checked) {
+        selectedShipping = true;
+      }
+    });
+    if (!selectedShipping) {
+      alert('Debes seleccionar una forma de envío.');
+      return;
+    }
+
+    // Verificar si la cantidad para cada artículo es mayor a 0
+    let validAmounts = true;
+    amountInputs.forEach(input => {
+      const amount = parseInt(input.value, 10);
+      if (isNaN(amount) || amount <= 0) {
+        validAmounts = false;
+      }
+    });
+    if (!validAmounts) {
+      alert('La cantidad para cada artículo debe ser mayor a 0.');
+      return;
+    }
+
+    // Verificar si se ha seleccionado una forma de pago
+    let selectedPaymentMethod = false;
+    paymentMethodInputs.forEach(input => {
+      if (input.checked) {
+        selectedPaymentMethod = true;
+      }
+    });
+    if (!selectedPaymentMethod) {
+      alert('Debes seleccionar una forma de pago.');
+      return;
+    }
+
+    // Verificar que los campos para la forma de pago seleccionada no estén vacíos
+    paymentFields.forEach(field => {
+      if (field.value.trim() === '') {
+        alert('Los campos de la forma de pago no pueden estar vacíos.');
+      }
+    });
+
+    // Si todas las validaciones pasan, puedes continuar con la finalización de la compra
+    // Agrega aquí tu lógica para completar la compra
+  });
+});
