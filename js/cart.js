@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
           let amount = parseInt(amountInput.value, 10);
           let totalAmount = product.unitCost * amount;
           totalAmountSpan.textContent = `${totalAmount} ${product.currency}`;
+          updateSummary(); // Llama a la función para actualizar el resumen
         });
       });
     });
@@ -80,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
           let amount = parseInt(amountInput.value, 10);
           let totalAmount = data.cost * amount;
           totalAmountSpan.textContent = `${totalAmount} ${data.currency}`;
+          updateSummary(); // Llama a la función para actualizar el resumen
         });
 
         //----------------------Eliminando productos del carrito----------------------//
@@ -100,11 +102,70 @@ document.addEventListener("DOMContentLoaded", () => {
               cart.splice(index + 1, 1);
               localStorage.setItem("cartArray", JSON.stringify(cart));
             }
+            updateSummary(); // Llama a la función para actualizar el resumen
           });
         });
       })
       .catch((error) => console.log(error));
   });
+
+  // Función para actualizar el resumen
+  function updateSummary() {
+    const subTotal = Array.from(document.querySelectorAll(".total-amount")).reduce((total, element) => {
+      return total + parseFloat(element.textContent);
+    }, 0);
+
+    const flatShippingCost = 0; // Tarifa plana de envío
+
+    const totalAmount = subTotal + flatShippingCost;
+
+    document.getElementById("subtotal-amount").textContent = `${subTotal.toFixed(2)} USD`;
+    document.getElementById("shipping-amount").textContent = `${flatShippingCost.toFixed(2)} USD`;
+    document.getElementById("total-amount").textContent = `${totalAmount.toFixed(2)} USD`;
+  }
+
+  // Llamar a la función para calcular el resumen al cargar la página
+  updateSummary();
+
+
+  // Agrega un evento de escucha a los elementos de radio para capturar el cambio
+  const premiumRadioButtons = document.querySelectorAll('input[name="premium"]');
+  premiumRadioButtons.forEach((radio) => {
+    radio.addEventListener("change", () => {
+      updateTotal(); // Llama a la función para actualizar el total
+    });
+  });
+
+  // Función para actualizar el total
+  function updateTotal() {
+    let subTotal = 0;
+    document.querySelectorAll(".total-amount").forEach((totalAmountSpan) => {
+      subTotal += parseFloat(totalAmountSpan.textContent);
+    });
+
+    let selectedShippingPercentage = 0;
+    premiumRadioButtons.forEach((radio) => {
+      if (radio.checked) {
+        selectedShippingPercentage = parseInt(radio.value, 10);
+      }
+    });
+
+    // Calcular el costo de envío en función del porcentaje seleccionado
+    const shippingCost = (subTotal * selectedShippingPercentage) / 100;
+
+    // Calcular el total a pagar
+    const totalAmount = subTotal + shippingCost;
+
+    // Actualizar los elementos HTML con los valores calculados
+    document.getElementById("subtotal-amount").textContent = `${subTotal.toFixed(2)} USD`;
+    document.getElementById("shipping-amount").textContent = `${shippingCost.toFixed(2)} USD`;
+    document.getElementById("total-amount").textContent = `${totalAmount.toFixed(2)} USD`;
+  }
+
+  // Llamar a la función para calcular el resumen al cargar la página
+  updateTotal(); 
+
+  
 });
 document.addEventListener('DOMContentLoaded', function() {
   const comprarButton = document.querySelector('#finish-buy');
