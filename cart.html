@@ -46,6 +46,7 @@
       </div>
     </div>
   </nav>
+  
   <main>
     <h1>Carrito</h1>
     <div class="container" id="container">
@@ -66,6 +67,63 @@
         <p>Esquina</p>
         <input type="text">
       </form>
+    </div>
+    <br>
+      <div style="margin-top: 350px;" class="container">
+        <div class="text-center">
+      <div class="row justify-content-center">
+        <div class="col-md-8 text-center"></div>
+        <h5 class="class text-muter my-4">Forma de pago</h5>
+        <br>
+        <p id="alreadypaid">No ha seleccionado</p>
+          <button class="class btn btn-primary" data-bs-toggle="modal" data-bs-target="#reg-modal">
+            Seleccionar
+          </button>
+        </div>
+        </div>
+      </div>
+    
+    <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+           <h5 class="modal-title" id="modal-title">Forma de pago</h5>
+           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Ingresa tus datos:</p>
+            <form>
+    <label>
+      <input class="mb-4" type="radio" name="metodo_pago" value="tarjeta_credito"> Tarjeta de Crédito
+    </label>
+    <br>
+    <div>
+      <label for="numero_tarjeta">Número de Tarjeta:</label>
+      <input class="mb-2" type="text" id="numero_tarjeta" name="numero_tarjeta">
+    </div>
+    <div>
+      <label for="codigo_seguridad">Código de Seguridad:</label>
+      <input class="mb-2" type="text" id="codigo_seguridad" name="codigo_seguridad">
+    </div>
+    <div>
+      <label for="vencimiento">Fecha de Vencimiento:</label>
+      <input  class="mb-2" type="text" id="vencimiento" name="vencimiento">
+    </div>
+    <br>
+
+    <label>
+      <input  class="mb-4" type="radio" name="metodo_pago" value="transferencia_bancaria"> Transferencia Bancaria
+    </label>
+    
+    <div>
+      <label for="numero_cuenta">Número de Cuenta:</label>
+      <input class="mb-2" type="text" id="numero_cuenta" name="numero_cuenta">
+    </div>
+    <button class="mt-2" type="submit">Enviar</button>
+  </form>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
   <footer class="text-muted">
