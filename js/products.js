@@ -162,7 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
             .getAttribute("list-id");
           cartArray.push(idOfList);
           localStorage.setItem("cartArray", JSON.stringify(cartArray));
-          console.log(cartArray)
           alert("Producto Añadido");
         });
       });
