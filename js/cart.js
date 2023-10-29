@@ -234,7 +234,7 @@ function handleSubmitCreditCardButtonClick() {
     showErrorMessage(errorMessage);
   }
 }
-// -------------- Parte 3 ----------------//
+// -------------- Parte 2 ----------------//
 // Manejador del botón "Transferencia bancaria"
 function handleWireTransferButtonClick() {
   const streetForm = document.getElementById("street-form");
