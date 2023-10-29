@@ -198,22 +198,19 @@ function isBankAccountValid() {
   const accountInputs = bankAccountForm.querySelectorAll('.account-info');
   return Array.from(accountInputs).every(input => input.value !== null && input.value !== '');
 }
-
-// Manejador del botón "Método de pago"
-function handlePaymentButtonClick() {
-  const streetForm = document.getElementById("street-form");
-  if (streetForm.checkValidity()) {
-    showModal("creditCardModal");
-  } else {
-    streetForm.classList.add("was-validated");
-  }
-}
-
 // Manejador del botón "Finalizar compra" en el primer modal
 function handleFinishBuyButtonClick() {
   showModal("myModal");
   updateTotal();
 }
+// ----------------- Limpiar Carrito ------------------ //
+/*
+function clearCart(cart) {
+  cart = []
+  JSON.stringify(localStorage.setItem("cartArray"));
+  document.getElementById('container').innerHTML = '';
+  console.log(cart)
+} */
 
 // Manejador del botón "Finalizar compra" en el segundo modal
 function handleSubmitCreditCardButtonClick() {
@@ -237,12 +234,21 @@ function handleSubmitCreditCardButtonClick() {
     showErrorMessage(errorMessage);
   }
 }
-
+// -------------- Parte 3 ----------------//
 // Manejador del botón "Transferencia bancaria"
 function handleWireTransferButtonClick() {
   const streetForm = document.getElementById("street-form");
   if (streetForm.checkValidity()) {
     showModal("bankAccountModal");
+  } else {
+    streetForm.classList.add("was-validated");
+  }
+}
+// Manejador del botón "Método de pago"
+function handlePaymentButtonClick() {
+  const streetForm = document.getElementById("street-form");
+  if (streetForm.checkValidity()) {
+    showModal("creditCardModal");
   } else {
     streetForm.classList.add("was-validated");
   }
@@ -255,6 +261,7 @@ function handleSubmitBankAccountButtonClick() {
     //miloco
     document.getElementById('myModal').style.display = 'none';
     showSuccessMessage(document.querySelector("#success-message"));
+    crearCart(cart)
   } else {
     showErrorMessage(document.querySelector("#error-message"));
   }
