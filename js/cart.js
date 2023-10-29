@@ -274,4 +274,7 @@ document.getElementById("close-modal").addEventListener("click", () => hideModal
 document.getElementById("submitCreditCard").addEventListener("click", handleSubmitCreditCardButtonClick);
 document.getElementById("wire-transfer").addEventListener("click", handleWireTransferButtonClick);
 document.getElementById("submitBankAccount").addEventListener("click", handleSubmitBankAccountButtonClick);
+
+})
+      .catch((error) => console.log(error));
 });
