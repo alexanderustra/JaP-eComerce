@@ -1,94 +1,202 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>eMercado - Todo lo que busques está aquí</title>
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/cart.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>eMercado - Todo lo que busques está aquí</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/cart.css" />
 </head>
-
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <div class="dropdown">
-            <a href="#" role="button" id="perfil-a" data-bs-toggle="dropdown" >
-              Perfil
-            </a>          
-            <ul class="dropdown-menu">
-              <li class="dropdown-list"><a id="" href="my-profile.html">Mi perfil</a></li>
-              <hr style="color: rgba(255,255,255,.55);">
-              <li class="dropdown-list"><a id="sign-off-btn" href="login.html">Cerrar sesión</a></li>
-            </ul>
-          </div>
-          <button id="toggle-mode">Cambiar Modo</button>
-        </ul>
-      </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav w-100 justify-content-between">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="categories.html">Categorías</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sell.html">Vender</a>
+                    </li>
+                    <div class="dropdown">
+                        <a href="#" role="button" id="perfil-a" data-bs-toggle="dropdown">Perfil</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-list">
+                                <a id="" href="my-profile.html">Mi perfil</a>
+                            </li>
+                            <hr style="color: rgba(255, 255, 255, 0.55)" />
+                            <li class="dropdown-list">
+                                <a id="sign-off-btn" href="login.html">Cerrar sesión</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <button id="toggle-mode">Cambiar Modo</button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <h1>Carrito</h1>
+        <div id="success-message" class="alert alert-success" role="alert" style="display: none; z-index: 9999;">
+            Compra exitosa!
+        </div>
+        <div id="error-message" class="alert alert-danger" role="alert" style="display: none; z-index: 9999;">
+            Datos Incorrectos
+        </div>
+        <div class="container" id="container"></div>
+        <div id="user-controls">
+            <button id="finish-buy">Finalizar Compra</button>
+            <a href="index.html" id="keep-buying">Seguir Comprando</a>
+            <!-- Primer Modal, datos generales. -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Detalles de Compra</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar" id="close-modal">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="height: 650px">
+                            <form id="street-form">
+                                <p>Selecciona la opción de envío premium:</p>
+                                <input type="radio" name="premium" value="15" id="premium-2-5" checked />
+                                <label for="premium-2-5">Premium 2 a 5 días (15%)</label><br />
+                                <input type="radio" name="premium" value="7" id="premium-5-8" />
+                                <label for="premium-5-8">Premium 5 a 8 días (7%)</label><br />
+                                <input type="radio" name="premium" value="5" id="premium-12-15" />
+                                <div class="invalid-feedback">Por favor, complete este campo.</div>
+                                <label for="premium-12-15">Premium 12 a 15 días (5%)</label>
+                                <p>Dirección de entrega:</p>
+                                <label for="calle">Calle:</label>
+                                <input type="text" id="calle" class="form-control" required /><br />
+                                <label for="numero">Número:</label>
+                                <input type="number" id="numero" class="form-control" required /><br />
+                                <label for="esquina">Esquina (opcional):</label>
+                                <input type="text" id="esquina" />
+                                <div id="summary">
+                                    <p>Subtotal: <span id="subtotal-amount">0.00 USD</span></p>
+                                    <p>Costo de envío: <span id="shipping-amount">0.00 USD</span></p>
+                                    <p>Total a pagar: <span id="total-amount">0.00 USD</span></p>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer mt-350">
+                            <div class="container">
+                                <div class="text-center">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-8 text-center"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary mx-auto mt-4 fs-7" id="payment-btn">Tarjeta</button>
+                            <button type="button" class="btn btn-primary mx-auto mt-4 fs-7" id="wire-transfer" style="width: 120px;">Transferencia</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modal tarjeta crédito. -->
+            
+            <div class="modal fade" id="creditCardModal" tabindex="-1" role="dialog" aria-labelledby="creditCardModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="creditCardModalLabel">Datos de Tarjeta de Crédito</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="creditCardNumber">Número de Tarjeta de Crédito</label>
+                                    <input type="number" class="form-control" id="creditCardNumber" placeholder="Ingrese el número de tarjeta" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="expirationDate">Fecha de Vencimiento</label>
+                                    <input type="number" class="form-control" id="expirationDate" placeholder="MM/YY" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="number" class="form-control" id="cvv" placeholder="Ingrese el CVV" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="submitCreditCard">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+            
+            <!-- Modal para Cuenta Bancaria -->
+            
+            <div class="modal fade" id="bankAccountModal" role="dialog" aria-labelledby="bankAccountModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="bankAccountModalLabel">Formulario de Cuenta Bancaria</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="bankAccountForm"> 
+                                <div class="form-group">
+                                    <label for="accountNumber">Número de Cuenta Bancaria:</label>
+                                    <input type="number" class="form-control account-info" id="accountNumber" name="accountNumber" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bankName">Nombre del Banco:</label>
+                                    <input type="text" class="form-control account-info" id="bankName" name="bankName" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="submitBankAccount">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-end">
+                <a href="#">Volver arriba</a>
+            </p>
+            <p>
+                Este sitio forma parte de
+                <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+            </p>
+        </div>
+    </footer>
+    <div id="spinner-wrapper">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
-  </nav>
-  <main>
-    <h1>Carrito</h1>
-    <div class="container" id="container">
-      
-    </div>
-    <div id="user-controls">
-      <button id="finish-buy">Finalizar Compra</button>
-      <a href="index.html" id="keep-buying">Seguir Comprando</a>
-
-      <form>
-        <input type="radio" name="premium" value="15" checked> Premium 2 a 5 días(15%)<br>
-        <input type="radio" name="premium" value="7"> Premium 5 a 8 días(7%)<br>
-        <input type="radio" name="premium" value="5"> Premium 12 a 15 días(5%)
-        <p>Calle</p>
-        <input type="text">
-        <p>Número</p>
-        <input type="number">
-        <p>Esquina</p>
-        <input type="text">
-      </form>
-    </div>
-  </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/general.js"></script>
-  <script src="js/dark-mode.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/general.js"></script>
+    <script src="js/dark-mode.js"></script>
 </body>
-
 </html>
