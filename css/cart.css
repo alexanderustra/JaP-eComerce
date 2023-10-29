@@ -1,5 +1,7 @@
 /* carrito*/
-
+.modal-backdrop {
+  display: none;
+}
 h1 {
   margin-top: 20px;
   margin-bottom: 50px;

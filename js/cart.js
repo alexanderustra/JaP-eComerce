@@ -231,11 +231,6 @@ function handleSubmitCreditCardButtonClick() {
     hideModal("creditCardModal");
     //miloco
     document.getElementById('myModal').style.display = 'none';
-    //sacar el background ya que hide modal no funciona
-    let back = document.querySelectorAll('.modal-backdrop');
-    back.forEach(object =>{
-      object.style.display = 'none';
-    })
     errorMessage.style.display = "none";
     showSuccessMessage(successMessage);
   } else {
@@ -259,11 +254,6 @@ function handleSubmitBankAccountButtonClick() {
     hideModal("bankAccountModal");
     //miloco
     document.getElementById('myModal').style.display = 'none';
-    //sacar el background ya que hide modal no funciona
-    let back = document.querySelectorAll('.modal-backdrop');
-    back.forEach(object =>{
-      object.style.display = 'none';
-    })
     showSuccessMessage(document.querySelector("#success-message"));
   } else {
     showErrorMessage(document.querySelector("#error-message"));

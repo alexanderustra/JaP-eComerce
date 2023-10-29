@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div id="buy-info">
                     <p class="price-and-sold">${data.cost} ${data.currency}</p>
                     <p class="price-and-sold">Vendidos: ${data.soldCount}</p>
-                    <button>Comprar</button>
                     <button id = 'add-to-cart'>Añadir al carrito</button>
 
                     <div id = 'seller-info'>
