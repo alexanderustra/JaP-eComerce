@@ -68,7 +68,10 @@
     <main>
       <h1>Carrito</h1>
       <div id="success-message"  class="alert alert-success" role="alert" style="display: none; z-index: 9999;">
-        Compra exitosa!
+      Compra exitosa!
+      </div>
+      <div id="error-message" class="alert alert-danger" role="alert" style="display: none; z-index: 9999;">
+        Datos Incorrectos
       </div>
       <div class="container" id="container"></div>
       <div id="user-controls">
@@ -168,59 +171,85 @@
                   id="payment-btn"
                   
                 >
-                  Método de pago
+                  Tarjeta
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary mx-auto mt-4 fs-7" 
+                  id="wire-transfer"
+                  
+                >
+                  Transferencia
                 </button>
               </div>
             </div>
           </div>
         </div>
         
-        <!-- Segundo modal, Método de pago. -->
-
-        <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-          <div class="modal-dialog" id="second-modal">
+        <!-- Modal tarjeta crédito. -->
+        
+        <div class="modal fade" id="creditCardModal" tabindex="-1" role="dialog" aria-labelledby="creditCardModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="creditCardModalLabel">Datos de Tarjeta de Crédito</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="creditCardNumber">Número de Tarjeta de Crédito</label>
+                    <input  type="text" class="form-control" id="creditCardNumber" placeholder="Ingrese el número de tarjeta" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="expirationDate">Fecha de Vencimiento</label>
+                    <input type="text" class="form-control" id="expirationDate" placeholder="MM/YY" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" class="form-control" id="cvv" placeholder="Ingrese el CVV" required>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="submitCreditCard">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </div>        
+        <!-- Modal para Cuenta Bancaria -->
+        <div class="modal fade" id="bankAccountModal"  role="dialog" aria-labelledby="bankAccountModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
               <div class="modal-content">
                   <div class="modal-header">
-                      <h5 class="modal-title" id="modal-title">Forma de pago</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <h5 class="modal-title" id="bankAccountModalLabel">Formulario de Cuenta Bancaria</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
                   </div>
-                  <div class="modal-body" style="height: 570px;">
-                      <p>Ingresa tus datos:</p>
-                      <form id="payment-form">
-                          <label>
-                              <input class="mb-4 payment-method" type="radio" name="metodo_pago" value="tarjeta_credito">
-                              Tarjeta de Crédito
-                          </label>
-                          <br />
-                          <div class="credit-card-fields" style="display: none;">
-                              <label for="numero_tarjeta">Número de Tarjeta:</label>
-                              <input class="mb-2" type="text" name="numero_tarjeta" pattern="\d{16}" title="Debe ingresar 16 dígitos numéricos">
-                              <br>
-                              <label for="codigo_seguridad">Código de Seguridad:</label>
-                              <input class="mb-2" type="text" name="codigo_seguridad">
-                              <br>
-                              <label for "vencimiento">Fecha de Vencimiento:</label>
-                              <input class="mb-2" type="text" name="vencimiento">
+                  <div class="modal-body">
+                      <form id="bankAccountForm"> 
+                          <div class="form-group">
+                              <label for="accountNumber">Número de Cuenta Bancaria:</label>
+                              <input type="text" class="form-control account-info" id="accountNumber" name="accountNumber" required>
                           </div>
-                          <br />
-  
-                          <label>
-                              <input class="mb-4 payment-method" type="radio" name="metodo_pago" value="transferencia_bancaria">
-                              Transferencia Bancaria
-                          </label>
-  
-                          <div class="transfer-fields" style="display: none;">
-                              <label for="numero_cuenta">Número de Cuenta:</label>
-                              <input class="mb-2" type="text" name="numero_cuenta">
+                          <div class="form-group">
+                              <label for="bankName">Nombre del Banco:</label>
+                              <input type="text" class="form-control account-info" id="bankName" name="bankName" required>
                           </div>
-                          <button class="mt-2" type="submit" id="send-form">Enviar</button>
                       </form>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" id="submitBankAccount">Enviar</button>
                   </div>
               </div>
           </div>
-      </div>
+          <!-- cuantas horas? -->
       </div>
       
+        
       </div>
     </main>
     <footer class="text-muted">

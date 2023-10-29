@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
   paymentButton.addEventListener("click", function (event) {
     if (streetForm.checkValidity()) {
       // Si el formulario es válido, abre el segundo modal
-      $('#reg-modal').modal('show');
+      $('#creditCardModal').modal('show');
     } else {
       // Si el formulario no es válido, muestra un mensaje de validación
       streetForm.classList.add("was-validated");
@@ -188,49 +188,84 @@ document.addEventListener("DOMContentLoaded", () => {
     $('#myModal').modal('hide');
   });
 
-  //segundo modal
+  const creditCardNumberInput = document.getElementById("creditCardNumber");
+    const expirationDateInput = document.getElementById("expirationDate");
+    const cvvInput = document.getElementById("cvv");
+    const submitButton = document.getElementById("submitCreditCard");
+    const errorMessage = document.querySelector("#error-message");
+    const successMessage = document.querySelector("#success-message");
 
-  const paymentMethods = document.querySelectorAll(".payment-method");
-  const creditCardFields = document.querySelector(".credit-card-fields");
-  const transferFields = document.querySelector(".transfer-fields");
-  const successMessage = document.querySelector("#success-message");
+    function completed() {
+      $('#creditCardModal').modal('hide');
+      errorMessage.style.display = "none"; 
+      modal.hide();
+      successMessage.style.display = "block";
+      setTimeout(function() {
+        successMessage.style.display = "none";
+      }, 2000);
+    }
+    
+    function error() {
+        errorMessage.style.display = "block";
+      setTimeout(function() {
+        errorMessage.style.display = "none";
+      }, 2000);
+    }
 
-  paymentMethods.forEach((method) => {
-      method.addEventListener("change", function () {
-          if (method.value === "tarjeta_credito") {
-              creditCardFields.style.display = "block";
-              transferFields.style.display = "none";
-          } else if (method.value === "transferencia_bancaria") {
-              creditCardFields.style.display = "none";
-              transferFields.style.display = "block";
-          }
-      });
-  });
-
-  const paymentForm = document.querySelector("#payment-form");
-
-  paymentForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-      const visibleInputs = paymentForm.querySelectorAll(".credit-card-fields input:required, .transfer-fields input:required");
-      let isValid = true;
-
-      visibleInputs.forEach(input => {
-          if (input.offsetParent === null) {
-              // El campo está oculto, no lo validamos
-          } else if (!input.checkValidity()) {
-              isValid = false;
-          }
-      });
-
-      if (isValid) {
-          successMessage.style.display = "block";
-          $('#reg-modal').modal('hide');
-          $('#myModal').modal('hide');
-
-          //alert
-          setTimeout(function() {
-            document.getElementById("success-message").style.display = "none";
-          }, 2000);
+    submitButton.addEventListener("click", function(event) {
+      if (!isCreditCardValid()) {
+        event.preventDefault();
+      error()
       }
-  });
+    });
+
+    function isCreditCardValid() {
+      const creditCardNumber = creditCardNumberInput.value;
+      const expirationDate = expirationDateInput.value;
+      const cvv = cvvInput.value;
+
+      // Validar que el número de tarjeta tenga 16 dígitos numéricos
+      if (!/^\d{16}$/.test(creditCardNumber)) {
+        return false;
+      }
+      return completed()
+    }
+    
+
+    //cuenta bancaria 
+
+    
+    let valid = false; // Declarar la variable valid fuera del evento click
+
+    let transferModal = new bootstrap.Modal(document.getElementById('bankAccountModal'));
+
+    document.getElementById('wire-transfer').addEventListener("click", function (event) {
+      if (streetForm.checkValidity()) {
+        // Si el formulario es válido, abre el segundo modal
+        transferModal.show();
+
+        document.getElementById('submitBankAccount').addEventListener('click', () => {
+          valid = true; // Establecer valid en true por defecto
+
+          let bankAccountForm = document.getElementById('bankAccountForm');
+          bankAccountForm.querySelectorAll('.account-info').forEach(input => {
+            if (input.value === null || input.value === '') {
+              valid = false;
+              return;
+            }
+          });
+
+          if (valid) {
+            transferModal.hide();
+            completed();
+          } else {
+            error()
+          }
+         
+        });
+      } else {
+        streetForm.classList.add("was-validated");
+      }
+    });
+
 });
