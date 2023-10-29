@@ -155,117 +155,126 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-  // formulario compretar compra
+  //---------------------- Formularios y validaciones ------------------------//
 
-  const finishBuyButton = document.getElementById("finish-buy");
-  const modal = new bootstrap.Modal(document.getElementById("myModal"));
+  // Función para mostrar un modal
+function showModal(modalId) {
+  const modal = new bootstrap.Modal(document.getElementById(modalId));
+  modal.show();
+}
 
-  finishBuyButton.addEventListener("click", function () {
-    modal.show();
-    updateTotal();
-  });
-  document.getElementById("close-modal").addEventListener("click", () => {
-    modal.hide();
-  });
+// Función para ocultar un modal
+function hideModal(modalId) {
+  const modal = new bootstrap.Modal(document.getElementById(modalId));
+  modal.hide();
+  document.getElementById(modalId).style.display = 'none';
+}
 
-  //primer modal
+// Función para mostrar un mensaje de éxito temporal
+function showSuccessMessage(messageElement, duration = 2000) {
+  messageElement.style.display = "block";
+  setTimeout(() => {
+    messageElement.style.display = "none";
+  }, duration);
+}
+
+// Función para mostrar un mensaje de error temporal
+function showErrorMessage(messageElement, duration = 2000) {
+  messageElement.style.display = "block";
+  setTimeout(() => {
+    messageElement.style.display = "none";
+  }, duration);
+}
+
+// Función para validar un formulario de tarjeta de crédito
+function isCreditCardValid(creditCardNumber, expirationDate, cvv) {
+  // Validar que el número de tarjeta tenga 16 dígitos numéricos
+  return /^\d{16}$/.test(creditCardNumber);
+}
+
+// Función para validar un formulario de cuenta bancaria
+function isBankAccountValid() {
+  const bankAccountForm = document.getElementById('bankAccountForm');
+  const accountInputs = bankAccountForm.querySelectorAll('.account-info');
+  return Array.from(accountInputs).every(input => input.value !== null && input.value !== '');
+}
+
+// Manejador del botón "Método de pago"
+function handlePaymentButtonClick() {
   const streetForm = document.getElementById("street-form");
-  const paymentButton = document.getElementById("payment-btn");
+  if (streetForm.checkValidity()) {
+    showModal("creditCardModal");
+  } else {
+    streetForm.classList.add("was-validated");
+  }
+}
 
-  // Agrega un manejador para el botón "Método de pago"
-  paymentButton.addEventListener("click", function (event) {
-    if (streetForm.checkValidity()) {
-      // Si el formulario es válido, abre el segundo modal
-      $('#creditCardModal').modal('show');
-    } else {
-      // Si el formulario no es válido, muestra un mensaje de validación
-      streetForm.classList.add("was-validated");
-    }
-  });
+// Manejador del botón "Finalizar compra" en el primer modal
+function handleFinishBuyButtonClick() {
+  showModal("myModal");
+  updateTotal();
+}
 
-  // Agrega un manejador para el cierre del primer modal
-  document.getElementById("close-modal").addEventListener("click", () => {
-    $('#myModal').modal('hide');
-  });
-
+// Manejador del botón "Finalizar compra" en el segundo modal
+function handleSubmitCreditCardButtonClick() {
   const creditCardNumberInput = document.getElementById("creditCardNumber");
-    const expirationDateInput = document.getElementById("expirationDate");
-    const cvvInput = document.getElementById("cvv");
-    const submitButton = document.getElementById("submitCreditCard");
-    const errorMessage = document.querySelector("#error-message");
-    const successMessage = document.querySelector("#success-message");
+  const expirationDateInput = document.getElementById("expirationDate");
+  const cvvInput = document.getElementById("cvv");
+  const errorMessage = document.querySelector("#error-message");
+  const successMessage = document.querySelector("#success-message");
 
-    function completed() {
-      $('#creditCardModal').modal('hide');
-      errorMessage.style.display = "none"; 
-      modal.hide();
-      successMessage.style.display = "block";
-      setTimeout(function() {
-        successMessage.style.display = "none";
-      }, 2000);
-    }
-    
-    function error() {
-        errorMessage.style.display = "block";
-      setTimeout(function() {
-        errorMessage.style.display = "none";
-      }, 2000);
-    }
+  const creditCardNumber = creditCardNumberInput.value;
+  const expirationDate = expirationDateInput.value;
+  const cvv = cvvInput.value;
 
-    submitButton.addEventListener("click", function(event) {
-      if (!isCreditCardValid()) {
-        event.preventDefault();
-      error()
-      }
-    });
+  if (isCreditCardValid(creditCardNumber, expirationDate, cvv)) {
+    hideModal("creditCardModal");
+    //miloco
+    document.getElementById('myModal').style.display = 'none';
+    //sacar el background ya que hide modal no funciona
+    let back = document.querySelectorAll('.modal-backdrop');
+    back.forEach(object =>{
+      object.style.display = 'none';
+    })
+    errorMessage.style.display = "none";
+    showSuccessMessage(successMessage);
+  } else {
+    showErrorMessage(errorMessage);
+  }
+}
 
-    function isCreditCardValid() {
-      const creditCardNumber = creditCardNumberInput.value;
-      const expirationDate = expirationDateInput.value;
-      const cvv = cvvInput.value;
+// Manejador del botón "Transferencia bancaria"
+function handleWireTransferButtonClick() {
+  const streetForm = document.getElementById("street-form");
+  if (streetForm.checkValidity()) {
+    showModal("bankAccountModal");
+  } else {
+    streetForm.classList.add("was-validated");
+  }
+}
 
-      // Validar que el número de tarjeta tenga 16 dígitos numéricos
-      if (!/^\d{16}$/.test(creditCardNumber)) {
-        return false;
-      }
-      return completed()
-    }
-    
+// Manejador del botón "Finalizar compra" en el modal de cuenta bancaria
+function handleSubmitBankAccountButtonClick() {
+  if (isBankAccountValid()) {
+    hideModal("bankAccountModal");
+    //miloco
+    document.getElementById('myModal').style.display = 'none';
+    //sacar el background ya que hide modal no funciona
+    let back = document.querySelectorAll('.modal-backdrop');
+    back.forEach(object =>{
+      object.style.display = 'none';
+    })
+    showSuccessMessage(document.querySelector("#success-message"));
+  } else {
+    showErrorMessage(document.querySelector("#error-message"));
+  }
+}
 
-    //cuenta bancaria 
-
-    
-    let valid = false; // Declarar la variable valid fuera del evento click
-
-    let transferModal = new bootstrap.Modal(document.getElementById('bankAccountModal'));
-
-    document.getElementById('wire-transfer').addEventListener("click", function (event) {
-      if (streetForm.checkValidity()) {
-        // Si el formulario es válido, abre el segundo modal
-        transferModal.show();
-
-        document.getElementById('submitBankAccount').addEventListener('click', () => {
-          valid = true; // Establecer valid en true por defecto
-
-          let bankAccountForm = document.getElementById('bankAccountForm');
-          bankAccountForm.querySelectorAll('.account-info').forEach(input => {
-            if (input.value === null || input.value === '') {
-              valid = false;
-              return;
-            }
-          });
-
-          if (valid) {
-            transferModal.hide();
-            completed();
-          } else {
-            error()
-          }
-         
-        });
-      } else {
-        streetForm.classList.add("was-validated");
-      }
-    });
-
+// Agregar event listeners a los botones
+document.getElementById("finish-buy").addEventListener("click", handleFinishBuyButtonClick);
+document.getElementById("payment-btn").addEventListener("click", handlePaymentButtonClick);
+document.getElementById("close-modal").addEventListener("click", () => hideModal("myModal"));
+document.getElementById("submitCreditCard").addEventListener("click", handleSubmitCreditCardButtonClick);
+document.getElementById("wire-transfer").addEventListener("click", handleWireTransferButtonClick);
+document.getElementById("submitBankAccount").addEventListener("click", handleSubmitBankAccountButtonClick);
 });
