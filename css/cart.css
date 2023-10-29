@@ -14,7 +14,6 @@ button {
   background-color: #d5ddd5;
   margin-left: 20px;
   border: none;
-  width: 70px;
   height: 50px;
   border-radius: 5px;
 }
@@ -25,38 +24,16 @@ form {
   width: 100%;
   height: 400px;
 }
-#keep-buying {
-  height: 50px;
-  width: 100px;
-  text-decoration: none;
-  text-align: center;
-  margin: auto;
-  margin-left: 20px;
-}
-#finish-buy {
-  margin-left: 0px;
-  margin: auto;
-  margin-right: 20px;
-  background-color: #f09100;
-}
-#user-controls {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  height: 100px;
-  width: 100%;
-  margin: auto;
-  margin-top: 50px;
-}
 input {
   color: #49585a;
-  background-color: #f09100;
+  background-color: #d5ddd5;
   width: 250px;
   height: 50px;
   outline: none;
   border: none;
   border-radius: 5px;
-  margin: none;
+  margin-right: none;
+  margin-top: 10px;
 }
 
 button {
@@ -68,12 +45,6 @@ button {
   height: 50px;
   border-radius: 5px;
 }
-
-footer {
-  margin-top: 300px;
-  margin-bottom: 0px;
-}
-
 .material-symbols-outlined {
   font-size: 30px;
 }
@@ -120,6 +91,36 @@ footer {
 
 #container {
   text-align: center;
+}
+#keep-buying {
+  height: 50px;
+  width: 100px;
+  text-decoration: none;
+  text-align: center;
+  margin: auto;
+  margin-left: 20px;
+}
+#finish-buy {
+  margin-left: 0px;
+  margin: auto;
+  margin-right: 20px;
+  background-color: #f09100;
+}
+#payment-btn {
+  width: 120px;
+  height: 60px;
+}
+#user-controls {
+  text-align: center;
+  height: 100px;
+  width: 100%;
+  margin: auto;
+  margin-top: 50px;
+}
+#summary {
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
 }
 
 @media (max-width: 1000px) {
