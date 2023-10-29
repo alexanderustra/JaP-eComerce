@@ -157,6 +157,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //---------------------- Formularios y validaciones ------------------------//
 
+          // ----------------- Limpiar Carrito ------------------ //
+/*
+function clearCart(cart) {
+  cart = []
+  JSON.stringify(localStorage.setItem("cartArray",cart));
+  document.getElementById('container').innerHTML = '';
+  console.log(cart)
+} */
+
   // Función para mostrar un modal
 function showModal(modalId) {
   const modal = new bootstrap.Modal(document.getElementById(modalId));
@@ -192,27 +201,39 @@ function isCreditCardValid(creditCardNumber, expirationDate, cvv) {
   return /^\d{16}$/.test(creditCardNumber);
 }
 
-// Función para validar un formulario de cuenta bancaria
+// Manejador del botón "Finalizar compra"
+function handleFinishBuyButtonClick() {
+  showModal("myModal");
+  updateTotal();
+}
+// -------------- Parte 2 ----------------//
+// Manejador del botón "Transferencia bancaria"
+function handleWireTransferButtonClick() {
+  const streetForm = document.getElementById("street-form");
+  if (streetForm.checkValidity()) {
+    showModal("bankAccountModal");
+  } else {
+    streetForm.classList.add("was-validated");
+  }
+}
+// Manejador del botón "tarjeta crédito"
+function handlePaymentButtonClick() {
+  const streetForm = document.getElementById("street-form");
+  if (streetForm.checkValidity()) {
+    showModal("creditCardModal");
+  } else {
+    streetForm.classList.add("was-validated");
+  }
+}
+
+// Función para validar un formulario de tarjeta de crédito
 function isBankAccountValid() {
   const bankAccountForm = document.getElementById('bankAccountForm');
   const accountInputs = bankAccountForm.querySelectorAll('.account-info');
   return Array.from(accountInputs).every(input => input.value !== null && input.value !== '');
 }
-// Manejador del botón "Finalizar compra" en el primer modal
-function handleFinishBuyButtonClick() {
-  showModal("myModal");
-  updateTotal();
-}
-// ----------------- Limpiar Carrito ------------------ //
-/*
-function clearCart(cart) {
-  cart = []
-  JSON.stringify(localStorage.setItem("cartArray"));
-  document.getElementById('container').innerHTML = '';
-  console.log(cart)
-} */
 
-// Manejador del botón "Finalizar compra" en el segundo modal
+// Manejador del botón "Finalizar compra" en el botón de tarjeta de crédito
 function handleSubmitCreditCardButtonClick() {
   const creditCardNumberInput = document.getElementById("creditCardNumber");
   const expirationDateInput = document.getElementById("expirationDate");
@@ -234,25 +255,6 @@ function handleSubmitCreditCardButtonClick() {
     showErrorMessage(errorMessage);
   }
 }
-// -------------- Parte 2 ----------------//
-// Manejador del botón "Transferencia bancaria"
-function handleWireTransferButtonClick() {
-  const streetForm = document.getElementById("street-form");
-  if (streetForm.checkValidity()) {
-    showModal("bankAccountModal");
-  } else {
-    streetForm.classList.add("was-validated");
-  }
-}
-// Manejador del botón "Método de pago"
-function handlePaymentButtonClick() {
-  const streetForm = document.getElementById("street-form");
-  if (streetForm.checkValidity()) {
-    showModal("creditCardModal");
-  } else {
-    streetForm.classList.add("was-validated");
-  }
-}
 
 // Manejador del botón "Finalizar compra" en el modal de cuenta bancaria
 function handleSubmitBankAccountButtonClick() {
@@ -266,7 +268,6 @@ function handleSubmitBankAccountButtonClick() {
     showErrorMessage(document.querySelector("#error-message"));
   }
 }
-
 // Agregar event listeners a los botones
 document.getElementById("finish-buy").addEventListener("click", handleFinishBuyButtonClick);
 document.getElementById("payment-btn").addEventListener("click", handlePaymentButtonClick);
