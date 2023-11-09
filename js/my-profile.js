@@ -7,13 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let dataArray = document.querySelectorAll('.profile-data');
+    console.log(dataArray)
     // ---esto es provicional---
-    let dataType = ['', 'Correo: ','Teléfono: '] // se usa para que en el bucle la descripción sea coherente con el tipo de dato.
+    let dataType = ['Nombre : ','Segundo Nombre : ','Apellido : ','Segundo Apellido : ', 'Correo: ','Teléfono: '] // se usa para que en el bucle la descripción sea coherente con el tipo de dato.
 
     function setProfile() {
         let userData = localStorage.getItem('user-data'); // se consiguen los datos del registro.
         let userDataArray = userData.split(','); // se separan los datos en un arreglo en lugar de una cadena.
-
+        console.log(userDataArray)
 
         for(let i = 0; i < dataArray.length ; i++) {
             dataArray[i].textContent = dataType[i] + userDataArray[i];
@@ -37,6 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
             input.value = dataArray[i].textContent.replace(dataType[i], '');
             inputsToModify.push(input);
         }
+        let imgInput = document.createElement('INPUT');
+        //let imgText = document.createElement('p');
+        //imgText.textContent = 'Imágen de Perfil';
+        imgInput.type = 'file';
+        imgInput.accept = 'image/*'; 
+        //modal.appendChild(imgText)
+        modal.appendChild(imgInput)
         editable = true;
         /* 
         se crea un botón para guardar, este botón oculta el modal y 
@@ -52,29 +60,21 @@ document.addEventListener('DOMContentLoaded', () => {
             for(let i = 0; i < dataArray.length ; i++) {
                 dataArray[i].textContent = dataType[i] + inputsToModify[i].value;
             }
+            if (imgInput.files && imgInput.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    var imageSrc = e.target.result;
+                    document.getElementById('profile-img').src = imageSrc;
+                    
+                    // Guarda la imagen en Local Storage
+                    localStorage.setItem('user-selected-img', imageSrc);
+                };
+                
+                reader.readAsDataURL(imgInput.files[0]);
+            }
         })
-        //al clickear la imagen de perfíl se crea un modal con varias opciones a elegir.
-        document.getElementById('profile-img').addEventListener('click',()=>{
-            let options = ['option1','option2','option3','option4','option5','option6','option7','option8','option9','option10','option11','option12','option13','option14','option15']
-            let modalImg = document.createElement('div');
-            modalImg.className = 'modal-img';
-            /* se crean un número definido de imagenes dentro del modal,
-            a cada imagén creada se le da una ruta a otra imagén 
-            existente en profile-imgs */
-            options.forEach(option => {
-                let image = new Image();
-                image.src = 'img/profile-imgs/' + option + '.jpg';
-                modalImg.appendChild(image);
-
-                //al hacer click en una opción se reemplaza la del perfíl y se guarda.
-                image.addEventListener('click',()=>{
-                    modalImg.style.display = 'none';
-                    document.getElementById('profile-img').src = image.src;
-                    localStorage.setItem('user-selected-img',image.src)
-                })
-            })
-            mainElement.appendChild(modalImg)
-        })
+        
 
     }
 

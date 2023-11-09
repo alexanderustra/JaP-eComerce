@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded',()=>{
     localStorage.setItem('logueado','false');
     //conseguir los datos del registro.
     let userData = localStorage.getItem('user-data').split(',');
-    console.log(userData[3])
+    console.log(userData)
+    console.log(userData[4])
+    console.log(userData[6])
 
     document.getElementById('iniciar-sesion-btn').addEventListener('click',(e)=>{
         e.preventDefault();
@@ -15,13 +17,15 @@ document.addEventListener('DOMContentLoaded',()=>{
         let userNameInput = formulario.querySelector('input[name="user-name"]');
         let passwordInput = formulario.querySelector('input[name="password"]');
 
-        if(userNameInput.value === userData[0] && passwordInput.value === userData[3] ) {
+        console.log(userNameInput.value + passwordInput.value)
+        if(userNameInput.value == userData[4] && passwordInput.value == userData[6] ) {
+            
             logueado = true;
             localStorage.setItem('logueado', 'true');
             window.location.href = './index.html';
         }
         else {
-           alert('datos incorectos')
+            alert('datos incorectos')
         }
     })
     // no permite cambiar de pestaña si no se loguea primero.
@@ -32,8 +36,4 @@ document.addEventListener('DOMContentLoaded',()=>{
             alert('Tiene que iniciar sesión');
         }
     }));
-    //llevar al registro
-    //document.getElementById('sign-in-btn').addEventListener('click',()=>{
-        //window.location.href = './sign-in.html';
-    //})
 })
