@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'sansation';
+    src: url('../webfonts/Sansation_Bold.ttf') format('truetype');
+}
+main {
+    text-align: center;
+}
+
+h1 {
+    font-size: 50px;
+    margin: auto;
+    margin-top: 10px;
+    width: 50%;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    color: #EDEDED;
+    background-color:#F09100;
+    -webkit-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+}
+
+a,h1,h2,h3, input,button {
+    text-decoration: none;
+}
+a:hover {
+    color: rgb(106, 105, 105);
+}
+h4 {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 60%;
+    height: 40px;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #49585A;
+    background-color: #FDFF9F;
+}
+
+button , input {
+    font-size: 23px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    width:200px;
+    height: 50px;
+    margin: auto;
+    color: #EDEDED;
+    background-color:#F09100;
+} 
+input[type = 'file'] {
+    width: 120px;
+    background-color: transparent;
+}
+img {
+    border-radius: 50%;
+    width: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+.main-container {
+    margin: auto;
+    margin-top: 100px;
+    width: 30%;
+    height: 400px;
+    border-radius: 10px;
+    background-color:  #ecf7f6;
+    border: 2px solid #F09100;
+}
+#sign-in-btn {
+    margin-top: 20px;
+    height: 40px;
+    width: 150px;
+}
+
+@-webkit-keyframes slide-in {
+    from {
+      opacity: 0;
+      scale: 0.2;
+      margin-left: -250px;
+    }
+    to {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+  
+@media screen and (max-width: 768px) {
+    .main-container {
+        margin-top: 50px;
+        width: 90%;
+        height:640px !important ;
+    }
+    input {
+        width: 80%;
+        margin-top:5px ;
+        margin-bottom: 5px;
+    }
+    button {
+        width: 60%;
+    }
+   
+    h4 {
+        font-size: 18px;
+    }
+}
+
+body.dark-mode .profile-data {
+    color: rgb(15, 15, 15);
+    }
