@@ -62,6 +62,4 @@ document.addEventListener('DOMContentLoaded',()=>{
             alert('Tiene que iniciar sesión');
         }
     }));
-
-
 })
