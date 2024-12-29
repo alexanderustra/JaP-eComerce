@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link rel="stylesheet" href="css/profile.css">
+  <link rel="stylesheet" href="css/sign-in.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <title>eMercado - Todo lo que busques está aquí</title>
@@ -41,9 +41,7 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-            <a href="my-profile.html" id="perfil-a">Perfil</a>
-          </li>
+          <button id="toggle-mode">Cambiar Modo</button>
         </ul>
       </div>
     </div>
@@ -52,10 +50,13 @@
     <h1>Registrarse</h1>
     <div class="main-container short-container">
       <form id="login-form">
-        <input type="text" name="user-name" placeholder="Nombre de usuario">
-        <input type="email" name="user-email" placeholder="Correo">
-        <input type="number" name="password" placeholder="Teléfono">
-        <input type="password" name="password2" placeholder="Contrasña">
+        <input type="text" name="user-name" placeholder="Nombre de usuario" required>
+        <input type="text" name="user-name" placeholder="Segundo Nombre" required>
+        <input type="text" name="surname" placeholder="Apellido">
+        <input type="text" name="surname" placeholder="Segundo apellido">
+        <input type="email" name="user-email" placeholder="Correo" required>
+        <input type="number" name="password" placeholder="Teléfono" required>
+        <input type="password" name="password2" placeholder="Contrasña" required>
         <button type="submit" id="sign-in-btn">Registrarse</button> <br>
         <a href="login.html">Iniciar Sesión</a>
       </form>
@@ -71,6 +72,7 @@
   </footer>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/sign-in.js"></script>
+  <script src="js/dark-mode.js"></script>
 </body>
 
 </html>
