@@ -1,4 +1,4 @@
-const CATEGORIES_URL = "https://alexanderustra.github.io/workspace-inicial/json/cats/cat.json"; 
+const CATEGORIES_URL = "https://alexanderustra.github.io/JaP-eComerce/json/cats/cat.json"; 
 const PUBLISH_PRODUCT_URL = "./json/sell/publish.json";
 const PRODUCTS_URL = "./json/cat_products/";
 const PRODUCT_INFO_URL = "./json/products/";
