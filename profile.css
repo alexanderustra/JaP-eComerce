@@ -1,0 +1,168 @@
+@font-face {
+    font-family: 'sansation';
+    src: url('../webfonts/Sansation_Bold.ttf') format('truetype');
+}
+main {
+    text-align: center;
+}
+
+h1 {
+    font-size: 50px;
+    margin: auto;
+    margin-top: 10px;
+    width: 50%;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    color: #EDEDED;
+    background-color:#F09100;
+    -webkit-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+}
+
+a,h1,h2,h3, input,button {
+    text-decoration: none;
+}
+a:hover {
+    color: rgb(106, 105, 105);
+}
+h2 {
+    font-size: 22px;
+}
+h3, h2 {
+    font-size: 22px;
+}
+h4 {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 60%;
+    height: 40px;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #49585A;
+    background-color: #FDFF9F;
+}
+
+button , input {
+    font-size: 23px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    width:200px;
+    height: 50px;
+    margin: auto;
+    color: #EDEDED;
+    background-color:#F09100;
+} 
+input[type = 'file'] {
+    width: 120px;
+    background-color: transparent;
+}
+img {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+.modal-input , .modal-img{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #FDFF9F;
+    border-radius: 12px;
+    width: 500px;
+    height: 300px;
+    -webkit-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
+    
+    animation-duration: .5s;
+    animation-name: slide-in;
+}
+.modal-img img {
+    margin: auto;
+    width: 20%;
+    height: 30%;
+    object-fit:cover;
+}
+.main-container , #main-container-profile{
+    margin: auto;
+    margin-top: 200px;
+    width: 30%;
+    height: 300px;
+    border-radius: 10px;
+    background-color:  #ecf7f6;
+    border: 2px solid #F09100;
+}
+#sign-in-btn {
+    margin-top: 20px;
+    height: 40px;
+    width: 150px;
+}
+#main-container-profile {
+    margin-top: 50px;
+    height:720px ;
+    width: 50%;
+}
+#edit-profile-btn {
+    margin-bottom: 10px;
+}
+@-webkit-keyframes slide-in {
+    from {
+      opacity: 0;
+      scale: 0.2;
+      margin-left: -250px;
+    }
+    to {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+  
+@media screen and (max-width: 768px) {
+    .modal-input {
+        width: 60%;
+        height: 510px;
+    }
+    .main-container , #main-container-profile {
+        width: 90%;
+    }
+    input {
+        width: 80%;
+        margin-top:5px ;
+        margin-bottom: 5px;
+    }
+    button {
+        width: 60%;
+    }
+   
+    h4 {
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 360px) {
+    .modal-input {
+        width: 87%;
+        height: 510px;
+    }
+    .main-container , #main-container-profile {
+        width: 95%;
+        height: 830px;
+    }
+    input {
+        width: 95%;
+        margin-top:5px ;
+        margin-bottom: 5px;
+    }
+}
+
+body.dark-mode .profile-data {
+    color: rgb(15, 15, 15);
+    }
