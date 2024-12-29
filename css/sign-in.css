@@ -61,35 +61,11 @@ img {
     margin-bottom: 20px;
     object-fit: cover;
 }
-.modal-input , .modal-img{
-    display: flex;
-    flex-wrap: wrap;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%);
-    background-color: #FDFF9F;
-    border-radius: 12px;
-    width: 500px;
-    height: 300px;
-    -webkit-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
-    -moz-box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
-    box-shadow: 10px 10px 9px -4px rgba(0,0,0,0.5);
-    
-    animation-duration: .5s;
-    animation-name: slide-in;
-}
-.modal-img img {
+.main-container {
     margin: auto;
-    width: 20%;
-    height: 30%;
-    object-fit:cover;
-}
-.main-container , #main-container-profile{
-    margin: auto;
-    margin-top: 200px;
+    margin-top: 100px;
     width: 30%;
-    height: 300px;
+    height: 400px;
     border-radius: 10px;
     background-color:  #ecf7f6;
     border: 2px solid #F09100;
@@ -99,14 +75,7 @@ img {
     height: 40px;
     width: 150px;
 }
-#main-container-profile {
-    margin-top: 50px;
-    height:720px ;
-    width: 50%;
-}
-#edit-profile-btn {
-    margin-bottom: 10px;
-}
+
 @-webkit-keyframes slide-in {
     from {
       opacity: 0;
@@ -120,12 +89,10 @@ img {
   }
   
 @media screen and (max-width: 768px) {
-    .modal-input {
-        width: 60%;
-        height: 510px;
-    }
-    .main-container , #main-container-profile {
+    .main-container {
+        margin-top: 50px;
         width: 90%;
+        height:640px !important ;
     }
     input {
         width: 80%;
@@ -138,21 +105,6 @@ img {
    
     h4 {
         font-size: 18px;
-    }
-}
-@media screen and (max-width: 360px) {
-    .modal-input {
-        width: 87%;
-        height: 510px;
-    }
-    .main-container , #main-container-profile {
-        width: 95%;
-        height: 830px;
-    }
-    input {
-        width: 95%;
-        margin-top:5px ;
-        margin-bottom: 5px;
     }
 }
 
