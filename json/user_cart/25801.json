@@ -1,0 +1,23 @@
+{
+  "user": 25801,
+  "articles": [
+    {
+      "name": "Fiat Way",
+      "soldCount": 52,
+      "count": 1,
+      "unitCost": 14500,
+      "image": "img/prod50922_1.jpg",
+      "id": 50922,
+      "currency": "USD"
+    },
+    {
+      "name": "Bugatti Chiron",
+      "soldCount": 0,
+      "count": 1,
+      "unitCost": 3500000,
+      "image": "img/prod50925_1.jpg",
+      "id": 50925,
+      "currency": "USD"
+    }
+  ]
+}
