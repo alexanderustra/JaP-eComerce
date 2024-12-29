@@ -54,11 +54,16 @@
   </nav>
   <main class="pb-5 container">
     <div id="search-section">
-      <button id="sort-price-asc">P Asc</button>
-      <button id="sort-price-desc">P Desc</button>
-      <button id="sort-sales-asc-btn">S asc</button>
-      <button id="sort-sales-desc-btn">S desc</button>
       <input type="search" id="search-input" placeholder="Buscar">
+      <div class="dropdown">
+        <button id="showMenu">Filtros</button>
+        <div id="menu" class="dropdown-content">
+          <button id="sort-price-asc">P Asc</button>
+          <button id="sort-price-desc">P Desc</button>
+          <button id="sort-sales-asc-btn">S asc</button>
+          <button id="sort-sales-desc-btn">S desc</button>
+        </div>
+      </div>
       <input type="number" id="rangeFilterPriceMin" class="filters" placeholder="Min Price">
       <input type="number" id="rangeFilterPriceMax" class="filters" placeholder="Max Price">
       <button id="filter-btn">Filtrar</button>
