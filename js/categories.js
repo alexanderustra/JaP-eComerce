@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     }
     
     document.getElementById('perfil-a').textContent = localStorage.getItem('nombreUsuario');
-    getJSONData("https://alexanderustra.github.io/JaP-eComerce/json/cats/cat.json").then(function(resultObj){
+    getJSONData(CATEGORIES_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             currentCategoriesArray = resultObj.data
             showCategoriesList()
