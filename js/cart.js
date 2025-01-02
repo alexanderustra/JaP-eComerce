@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
       updateTotal();
     });
   }
+  console.log(localStorage.getItem("token"))
 
   //------mostrando total del total totalitario totalista-----------//
 

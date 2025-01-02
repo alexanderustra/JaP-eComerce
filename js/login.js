@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch((error) => {
           console.error(error);
         });
-      window.location.href = "./index.html";
+        window.location.href = "./index.html";
     });
   // no permite cambiar de pestaña si no se loguea primero.
   let listaMenu = document.querySelectorAll(".nav-link");

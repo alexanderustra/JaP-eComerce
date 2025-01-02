@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       //si no hay datos se crea un modal indicando que no hay stock;
       if (data.products.length == 0) {
         let noStockH1 = document.createElement("h1");
-        noStockH1.textContent = "No hay stock brodeell";
+        noStockH1.textContent = "Próximamente";
         noStockH1.className = "no-stock-h1";
         productsList.appendChild(noStockH1);
       }
@@ -186,6 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
               //---------------- Añadiendo al json ------------------- //
 
               // Realizar la solicitud fetch para agregar el producto al carrito
+              // Solo funciona con el servidor local, obviamente.
 
               fetch("http://localhost:3000/agregar-al-carrito", {
                 method: "POST",
@@ -206,6 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   alert("Producto Agregado Correctamente");
                 })
                 .catch((error) => {
+                  alert('No se puede realizar la acción (Server Off)')
                   console.error("Error al realizar la solicitud fetch:", error);
                   console.log("Response Status:", error.response.status);
                   console.log("Response Text:", error.response.text());
