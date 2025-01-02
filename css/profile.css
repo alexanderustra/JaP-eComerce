@@ -53,8 +53,8 @@ button , input {
     width:200px;
     height: 50px;
     margin: auto;
-    color: #EDEDED;
-    background-color:#F09100;
+    color: #49585A;
+    background-color:#FFFFFF;
 } 
 input[type = 'file'] {
     width: 120px;
@@ -99,7 +99,7 @@ img {
     height: 300px;
     border-radius: 10px;
     background-color:  #ecf7f6;
-    border: 2px solid #F09100;
+    border: 1px solid #F09100;
 }
 #sign-in-btn {
     margin-top: 20px;
@@ -128,7 +128,8 @@ img {
   
 @media screen and (max-width: 768px) {
     .modal-input {
-        width: 60%;
+        width: 90%;
+        margin-top: -100px;
         height: 510px;
     }
     .main-container , #main-container-profile {

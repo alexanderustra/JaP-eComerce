@@ -12,21 +12,24 @@ form {
     display: inline-block;
     text-align: center;
     width: 90%;
+    background-color: red;
 }
 p {
     font-size: 20px;
     margin: none;
 }
-input {
+#login-input {
     width: 220px;
     height: 40px;
-    border: none;
     border-radius: 10px;
     outline: none;
     margin: auto;
     margin-top: 20px;
     margin-left: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    color: #49585A;
+    background-color:#FFFFFF;
+    border: 1px solid #49585A;
 } 
 button[type = submit] {
     display: block;
@@ -34,7 +37,6 @@ button[type = submit] {
     margin-top: 20px;
     width: 150px;
     height: 40px;
-    border: none;
     color: white;
     background-color: rgb(74, 151, 172);
     border-radius: 10px;
